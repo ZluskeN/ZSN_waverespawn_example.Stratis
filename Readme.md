@@ -4,7 +4,7 @@ Place them somewhere safe, we don't want them to be interfered with, consider fr
 
 Place objects in the editor, name them zsn_respawn_east, zsn_respawn_west and/or zsn_respawn_guerrila.
 This is the place the players will be moved to when they are given control back. Make sure they are objects,
-I no longer support markers since they cannot be moved during gameplay on dedicated servers. (I recommend the invisible Helipad, but any abject is supported, including vehicles)
+I no longer support markers since they cannot be moved during gameplay on dedicated servers. (I recommend the invisible Helipad, but any object is supported, including vehicles)
 
 [west, 4, -1, true, false] remoteExec ["zsn_waverespawn", 2];
 
