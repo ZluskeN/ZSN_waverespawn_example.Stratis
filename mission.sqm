@@ -8,11 +8,11 @@ class EditorData
 	toggles=1;
 	class ItemIDProvider
 	{
-		nextID=346;
+		nextID=349;
 	};
 	class MarkerIDProvider
 	{
-		nextID=5;
+		nextID=6;
 	};
 	class Camera
 	{
@@ -29,13 +29,14 @@ addons[]=
 	"A3_Characters_F_Mark",
 	"A3_Modules_F_Curator_Curator",
 	"A3_Soft_F_Beta_Truck_02",
-	"A3_Structures_F_Mil_Helipads"
+	"A3_Structures_F_Mil_Helipads",
+	"A3_Ui_F"
 };
 class AddonsMetaData
 {
 	class List
 	{
-		items=5;
+		items=6;
 		class Item0
 		{
 			className="A3_Characters_F";
@@ -71,6 +72,13 @@ class AddonsMetaData
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
+		class Item5
+		{
+			className="A3_Ui_F";
+			name="Arma 3 - User Interface";
+			author="Bohemia Interactive";
+			url="https://www.arma3.com";
+		};
 	};
 };
 randomSeed=11483979;
@@ -100,7 +108,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=11;
+		items=14;
 		class Item0
 		{
 			dataType="Group";
@@ -1397,6 +1405,33 @@ class Mission
 			};
 			id=344;
 			type="Land_HelipadEmpty_F";
+		};
+		class Item11
+		{
+			dataType="Marker";
+			position[]={2284.834,0,2174.9099};
+			name="respawn_guerrila";
+			type="respawn_unknown";
+			id=346;
+			atlOffset=-55.745461;
+		};
+		class Item12
+		{
+			dataType="Marker";
+			position[]={6552.04,0,5075.2349};
+			name="respawn_west";
+			type="respawn_unknown";
+			id=347;
+			atlOffset=-50.353394;
+		};
+		class Item13
+		{
+			dataType="Marker";
+			position[]={5371.2202,0,5249.5371};
+			name="respawn_east";
+			type="respawn_unknown";
+			id=348;
+			atlOffset=-218.92728;
 		};
 	};
 };
