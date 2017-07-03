@@ -1,4 +1,4 @@
-Place respawn Markers in the editor, name them respawn_east, respawn_west and/or respawn_guerrila depending on which sides you want to have respawning
+Place respawn Markers in the editor, name them respawn_east, respawn_west and/or respawn_guerrila depending on which sides you want to have respawning.
 The players will respawn here but will not be able to control their units until there are enough of them. Make sure these markers are at least 100 m apart.
 Place them somewhere safe, we don't want them to be interfered with, consider framing them with hescos or similar.
 
