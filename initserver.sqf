@@ -21,6 +21,8 @@ zsn_waverespawn =
    {
       case east:
       {
+         if (!isNil ("respawn_east")) then {_spawnmarker = createMarker ["respawn_east",[0,100]];};
+
          zsn_radio_east = _zsn_radio;								//make variable global
 
          publicVariable "zsn_radio_east";							//broadcast variable to all clients
@@ -58,6 +60,8 @@ zsn_waverespawn =
       };
       case west:
       {
+         if (!isNil ("respawn_west")) then {_spawnmarker = createMarker ["respawn_west",[100,0]];};
+
          zsn_radio_west = _zsn_radio;
 
          publicVariable "zsn_radio_west";
@@ -95,6 +99,8 @@ zsn_waverespawn =
       };
       case resistance:
       {
+         if (!isNil ("respawn_guerrila")) then {_spawnmarker = createMarker ["respawn_guerrila",[0,0]];};
+
          zsn_radio_resistance = _zsn_radio;
 
          publicVariable "zsn_radio_resistance";
