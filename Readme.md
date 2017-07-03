@@ -2,6 +2,8 @@ Place respawn Markers in the editor, name them respawn_east, respawn_west and/or
 The players will respawn here but will not be able to control their units until there are enough of them. Make sure these markers are at least 100 m apart.
 Place them somewhere safe, we don't want them to be interfered with, consider framing them with hescos or similar.
 
+UPDATE: You no longer have to place respawn markers, the script places them for you
+
 Place objects in the editor, name them zsn_respawn_east, zsn_respawn_west and/or zsn_respawn_guerrila.
 This is the place the players will be moved to when they are given control back. Make sure they are objects,
 I no longer support markers since they cannot be moved during gameplay on dedicated servers. (I recommend the invisible Helipad, but any object is supported, including vehicles)
