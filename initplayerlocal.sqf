@@ -15,24 +15,25 @@ zsn_gplayer_trg = createTrigger ["EmptyDetector", getmarkerPos "respawn_guerrila
 zsn_gplayer_trg setTriggerActivation ["civ", "PRESENT", true];
 
 player addEventHandler
-
-["Respawn", 
-   {
-      titleText ["", "BLACK OUT"]; titleText ["", "BLACK IN"];				//fades to black and back to hide possible confusing teleportations
-
-      ["Initialize",[player, [playerside], false, false, true, true, true, true, true, true]] call BIS_fnc_EGSpectator;			//initialize spectating
-
-      if (isClass(configFile >> "CfgPatches" >> "task_force_radio")) then {[player, false] remoteExec ["TFAR_fnc_forceSpectator"];};	//Fixes TFAR-Dev sending people into spectator chat
-
-      switch (playerSide) do
+   ["Respawn", 
       {
-         case east: {if ((zsn_wavesize_east - (count list zsn_eplayer_trg)) > 1) then {hint format ["Wave Respawn is in effect, wave size is %1. You will respawn when %2 more players die.", zsn_wavesize_east, (zsn_wavesize_east - (count list zsn_eplayer_trg + 1))];} else {hint format ["Wave Respawn is in effect, wave size is %1.", zsn_wavesize_east];};};
-         case west: {if ((zsn_wavesize_west - (count list zsn_wplayer_trg)) > 1) then {hint format ["Wave Respawn is in effect, wave size is %1. You will respawn when %2 more players die.", zsn_wavesize_west, (zsn_wavesize_west - (count list zsn_wplayer_trg + 1))];} else {hint format ["Wave Respawn is in effect, wave size is %1.", zsn_wavesize_west];};};
-         case resistance: {if ((zsn_wavesize_resistance - (count list zsn_gplayer_trg)) > 1) then {hint format ["Wave Respawn is in effect, wave size is %1. You will respawn when %2 more players die.", zsn_wavesize_resistance, zsn_wavesize_resistance - (count list zsn_gplayer_trg + 1)];} else {hint format ["Wave Respawn is in effect, wave size is %1.", zsn_wavesize_resistance];};};
-      };
+         titleText ["", "BLACK OUT"]; 							//fades to black to hide possible confusing teleportations
 
-      [player, [missionNamespace, "inventory_var"]] call BIS_fnc_loadInventory;		//load saved loadout on respawn
+         ["Initialize",[player, [playerside], false, false, true, true, true, true, true, true]] call BIS_fnc_EGSpectator;		//initialize spectating
 
-      [player] join createGroup CIVILIAN;						//Change player side to cilivian to prevent players from spectating themselves
-   }
-];
+         if (isClass(configFile >> "CfgPatches" >> "task_force_radio")) then {[player, true] call TFAR_fnc_forceSpectator;};	//Puts player in TFAR spectator chat
+
+         switch (playerSide) do
+         {
+            case east: {if ((zsn_wavesize_east - (count list zsn_eplayer_trg)) > 1) then {hint format ["Wave Respawn is in effect, wave size is %1. You will respawn when %2 more players die.", zsn_wavesize_east, (zsn_wavesize_east - (count list zsn_eplayer_trg + 1))];} else {hint format ["Wave Respawn is in effect, wave size is %1.", zsn_wavesize_east];};};
+            case west: {if ((zsn_wavesize_west - (count list zsn_wplayer_trg)) > 1) then {hint format ["Wave Respawn is in effect, wave size is %1. You will respawn when %2 more players die.", zsn_wavesize_west, (zsn_wavesize_west - (count list zsn_wplayer_trg + 1))];} else {hint format ["Wave Respawn is in effect, wave size is %1.", zsn_wavesize_west];};};
+            case resistance: {if ((zsn_wavesize_resistance - (count list zsn_gplayer_trg)) > 1) then {hint format ["Wave Respawn is in effect, wave size is %1. You will respawn when %2 more players die.", zsn_wavesize_resistance, zsn_wavesize_resistance - (count list zsn_gplayer_trg + 1)];} else {hint format ["Wave Respawn is in effect, wave size is %1.", zsn_wavesize_resistance];};};
+         };
+
+         [player, [missionNamespace, "inventory_var"]] call BIS_fnc_loadInventory;	//load saved loadout on respawn
+
+         [player] join createGroup CIVILIAN;						//Change player side to cilivian to prevent players from spectating themselves
+
+         titleText ["", "BLACK IN"];							//fade back in
+      }
+   ];

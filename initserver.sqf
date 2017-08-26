@@ -158,7 +158,11 @@ zsn_spawnwave_east =
 
    {_x setVehiclePosition [(getpos zsn_respawn_east), [], 4]} forEach _units;	//teleport new squad to zsn_respawn-marker
 
+   if (isClass(configFile >> "CfgPatches" >> "task_force_radio")) then {[player, false] remoteExec ["TFAR_fnc_forceSpectator", _units];};	//Fixes TFAR-Dev sending people into spectator chat
+
    ["Terminate"] remoteExec ["BIS_fnc_EGSpectator", _units];			//terminate spectator for members of new squad
+
+   [format ["%1 is the the squad leader, your callsign is %2", name _highestRanked, _grp]] remoteExec ["hint", _units];							//display hint for squad members
 
    zsn_wavecount_east = zsn_wavecount_east - 1;					//alter wavecount variable
 
@@ -190,7 +194,11 @@ zsn_spawnwave_west =
 
    {_x setVehiclePosition [(getpos zsn_respawn_west), [], 4]} forEach _units;
 
+   if (isClass(configFile >> "CfgPatches" >> "task_force_radio")) then {[player, false] remoteExec ["TFAR_fnc_forceSpectator", _units];};	//Fixes TFAR-Dev sending people into spectator chat
+
    ["Terminate"] remoteExec ["BIS_fnc_EGSpectator", _units];
+
+   [format ["%1 is the the squad leader, your callsign is %2", name _highestRanked, _grp]] remoteExec ["hint", _units];							//display hint for squad members
 
    zsn_wavecount_west = zsn_wavecount_west - 1;
 
@@ -222,7 +230,11 @@ zsn_spawnwave_resistance =
 
    {_x setVehiclePosition [(getpos zsn_respawn_guerrila), [], 4]} forEach _units;
 
+   if (isClass(configFile >> "CfgPatches" >> "task_force_radio")) then {[player, false] remoteExec ["TFAR_fnc_forceSpectator", _units];};	//Fixes TFAR-Dev sending people into spectator chat
+
    ["Terminate"] remoteExec ["BIS_fnc_EGSpectator", _units];
+
+   [format ["%1 is the the squad leader, your callsign is %2", name _highestRanked, _grp]] remoteExec ["hint", _units];				//display hint for squad members
 
    zsn_wavecount_resistance = zsn_wavecount_resistance - 1;
 
