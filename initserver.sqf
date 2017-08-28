@@ -137,6 +137,8 @@ zsn_spawnwave_east =
 {
    _units = _this;								//creates array of all units in trigger area
 
+   ["", "BLACK OUT"] remoteexec ["titleText", _units]; 				//fades to black to hide possible confusing teleportations
+
    _players = _units apply {[ rankId _x, rating _x, _x ]};			//applies rank and score ratings to players in array
 
    _players = _players - [ -1 ];						//not sure what this does but it was in the example code i used
@@ -158,20 +160,27 @@ zsn_spawnwave_east =
 
    {_x setVehiclePosition [(getpos zsn_respawn_east), [], 4]} forEach _units;	//teleport new squad to zsn_respawn-marker
 
-   if (isClass(configFile >> "CfgPatches" >> "task_force_radio")) then {[player, false] remoteExec ["TFAR_fnc_forceSpectator", _units];};	//Fixes TFAR-Dev sending people into spectator chat
+   if (isClass(configFile >> "CfgPatches" >> "task_force_radio")) then 
+   {
+      [player, false] remoteExec ["TFAR_fnc_forceSpectator", _units];		//Fixes TFAR-Dev sending people into spectator chat
+   };
 
    ["Terminate"] remoteExec ["BIS_fnc_EGSpectator", _units];			//terminate spectator for members of new squad
-
-   [format ["%1 is the the squad leader, your callsign is %2", name _highestRanked, _grp]] remoteExec ["hint", _units];							//display hint for squad members
+										//display hint for squad members
+   [format ["%1 is the the squad leader, your callsign is %2", name _highestRanked, _grp]] remoteExec ["hint", _units];
 
    zsn_wavecount_east = zsn_wavecount_east - 1;					//alter wavecount variable
 
    publicVariable "zsn_wavecount_east";						//broadcast variable to all clients
+
+   ["", "BLACK IN"] remoteexec ["titleText", _units]; 				//fades back in
 };
 
 zsn_spawnwave_west = 
 {
    _units = _this;
+
+   ["", "BLACK OUT"] remoteexec ["titleText", _units];
 
    _players = _units apply {[ rankId _x, rating _x, _x ]};
 
@@ -194,20 +203,27 @@ zsn_spawnwave_west =
 
    {_x setVehiclePosition [(getpos zsn_respawn_west), [], 4]} forEach _units;
 
-   if (isClass(configFile >> "CfgPatches" >> "task_force_radio")) then {[player, false] remoteExec ["TFAR_fnc_forceSpectator", _units];};	//Fixes TFAR-Dev sending people into spectator chat
+   if (isClass(configFile >> "CfgPatches" >> "task_force_radio")) then 
+   {
+      [player, false] remoteExec ["TFAR_fnc_forceSpectator", _units];
+   };
 
    ["Terminate"] remoteExec ["BIS_fnc_EGSpectator", _units];
 
-   [format ["%1 is the the squad leader, your callsign is %2", name _highestRanked, _grp]] remoteExec ["hint", _units];							//display hint for squad members
+   [format ["%1 is the the squad leader, your callsign is %2", name _highestRanked, _grp]] remoteExec ["hint", _units];
 
    zsn_wavecount_west = zsn_wavecount_west - 1;
 
    publicVariable "zsn_wavecount_west";
+
+   ["", "BLACK IN"] remoteexec ["titleText",  _units]; 	
 };
 
 zsn_spawnwave_resistance = 
 {
    _units = _this;
+
+   ["", "BLACK OUT"] remoteexec ["titleText", _units];
 
    _players = _units apply {[ rankId _x, rating _x, _x ]};
 
@@ -230,13 +246,18 @@ zsn_spawnwave_resistance =
 
    {_x setVehiclePosition [(getpos zsn_respawn_guerrila), [], 4]} forEach _units;
 
-   if (isClass(configFile >> "CfgPatches" >> "task_force_radio")) then {[player, false] remoteExec ["TFAR_fnc_forceSpectator", _units];};	//Fixes TFAR-Dev sending people into spectator chat
+   if (isClass(configFile >> "CfgPatches" >> "task_force_radio")) then 
+   {
+      [player, false] remoteExec ["TFAR_fnc_forceSpectator", _units];
+   };
 
    ["Terminate"] remoteExec ["BIS_fnc_EGSpectator", _units];
 
-   [format ["%1 is the the squad leader, your callsign is %2", name _highestRanked, _grp]] remoteExec ["hint", _units];				//display hint for squad members
+   [format ["%1 is the the squad leader, your callsign is %2", name _highestRanked, _grp]] remoteExec ["hint", _units];
 
    zsn_wavecount_resistance = zsn_wavecount_resistance - 1;
 
    publicVariable "zsn_wavecount_resistance";
+
+   ["", "BLACK IN"] remoteexec ["titleText", _units];
 };

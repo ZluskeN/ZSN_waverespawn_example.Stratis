@@ -1,11 +1,11 @@
 version=53;
 class EditorData
 {
-	moveGridStep=1;
+	moveGridStep=2;
 	angleGridStep=0.2617994;
 	scaleGridStep=1;
 	autoGroupingDist=10;
-	toggles=1;
+	toggles=5;
 	class ItemIDProvider
 	{
 		nextID=349;
@@ -1412,6 +1412,7 @@ class Mission
 			position[]={2284.834,0,2174.9099};
 			name="respawn_guerrila";
 			type="respawn_unknown";
+			alpha=0.5;
 			id=346;
 			atlOffset=-55.745461;
 		};
@@ -1421,6 +1422,7 @@ class Mission
 			position[]={6552.04,0,5075.2349};
 			name="respawn_west";
 			type="respawn_unknown";
+			alpha=0.5;
 			id=347;
 			atlOffset=-50.353394;
 		};
@@ -1430,6 +1432,7 @@ class Mission
 			position[]={5371.2202,0,5249.5371};
 			name="respawn_east";
 			type="respawn_unknown";
+			alpha=0.5;
 			id=348;
 			atlOffset=-218.92728;
 		};
