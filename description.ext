@@ -3,3 +3,4 @@ respawnDelay = 4;
 respawnButton = 0;
 DisabledAI = 1;
 enableDebugConsole = 2;
+respawnOnStart = -1;
