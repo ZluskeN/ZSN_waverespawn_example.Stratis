@@ -1,19 +1,19 @@
 [resistance] remoteExec ["zsn_waverespawn", 2];
-[west, 2, 6, false, true] remoteExec ["zsn_waverespawn", 2];
-[east, 3, 4, false, true] remoteExec ["zsn_waverespawn", 2];
+[west, 4, 6, true, true] remoteExec ["zsn_waverespawn", 2];
+[east, 6, 4, true, true] remoteExec ["zsn_waverespawn", 2];
 
 zsn_waverespawn = {
 	params [
-		["_zsn_side", west, [east]],	//Side to execute wave respawn for 		(SIDE, Default west)
-		["_zsn_wavesize", 4, [8]],	//Size of respawn waves				(NUMBER, Default 4)
-		["_zsn_wavecount", -1, [8]],	//Number of respawn waves 			(NUMBER, Default -1 = infinite)
-		["_zsn_radio", true, [false]],	//Equip leader of new wave with itemradio	(BOOLEAN, Default true)
-		["_zsn_pvp", false, [true]]	//pvp or coop					(BOOLEAN, Default false = coop)
+		["_zsn_side", west, [east]],		//Side to execute wave respawn for 		(SIDE, Default west)
+		["_zsn_wavesize", 8, [8]],		//Size of respawn waves				(NUMBER, Default 4)
+		["_zsn_wavecount", -1, [8]],		//Number of respawn waves 			(NUMBER, Default -1 = infinite)
+		["_zsn_loadout", true, [false]],	//new wave receives custom gear			(BOOLEAN, Default true)
+		["_zsn_pvp", false, [true]]		//pvp or coop					(BOOLEAN, Default false = coop)
 	];
 	switch (_zsn_side) do {
 		case east: {
-			zsn_radio_east = _zsn_radio;
-			publicVariable "zsn_radio_east";
+			zsn_loadout_east = _zsn_loadout;
+			publicVariable "zsn_loadout_east";
 			zsn_wavecount_east = _zsn_wavecount;
 			publicVariable "zsn_wavecount_east";
 			zsn_wavesize_east = _zsn_wavesize;
@@ -32,8 +32,8 @@ zsn_waverespawn = {
 			};
 		};
 		case west: {
-			zsn_radio_west = _zsn_radio;
-			publicVariable "zsn_radio_west";
+			zsn_loadout_west = _zsn_loadout;
+			publicVariable "zsn_loadout_west";
 			zsn_wavecount_west = _zsn_wavecount;
 			publicVariable "zsn_wavecount_west";
 			zsn_wavesize_west = _zsn_wavesize;
@@ -52,8 +52,8 @@ zsn_waverespawn = {
 			};
 		};
 		case resistance: {
-			zsn_radio_resistance = _zsn_radio;
-			publicVariable "zsn_radio_resistance";
+			zsn_loadout_resistance = _zsn_loadout;
+			publicVariable "zsn_loadout_resistance";
 			zsn_wavecount_resistance = _zsn_wavecount;
 			publicVariable "zsn_wavecount_resistance";
 			zsn_wavesize_resistance = _zsn_wavesize;
@@ -82,18 +82,23 @@ zsn_spawnwave_east = {
 	_players sort false;
 	_grp = createGroup east;
 	{[_x select 2] join _grp} forEach _players;
-	_highestRanked = _players select 0 select 2;
-	if (zsn_radio_east) then {
-		_highestRanked additem "itemradio";
-		_highestRanked assignItem "itemradio";
+	if (zsn_loadout_east) then {
+		if (count _units > 0) then {[_players select 0 select 2, missionconfigfile >> "CfgRespawnInventory" >> "ZSN_O_Soldier_SL_F"] call BIS_fnc_loadInventory;};
+		if (count _units > 1) then {[_players select 1 select 2, missionconfigfile >> "CfgRespawnInventory" >> "ZSN_O_Soldier_TL_F"] call BIS_fnc_loadInventory;};
+		if (count _units > 2) then {[_players select 2 select 2, missionconfigfile >> "CfgRespawnInventory" >> "ZSN_O_Soldier_LAT_F"] call BIS_fnc_loadInventory;};
+		if (count _units > 3) then {[_players select 3 select 2, missionconfigfile >> "CfgRespawnInventory" >> "ZSN_O_Soldier_AR_F"] call BIS_fnc_loadInventory;};
+		if (count _units > 4) then {[_players select 4 select 2, missionconfigfile >> "CfgRespawnInventory" >> "ZSN_O_Heavygunner_F"] call BIS_fnc_loadInventory;};
+		if (count _units > 5) then {[_players select 5 select 2, missionconfigfile >> "CfgRespawnInventory" >> "ZSN_O_Soldier_AT_F"] call BIS_fnc_loadInventory;};
+		if (count _units > 6) then {[_players select 6 select 2, missionconfigfile >> "CfgRespawnInventory" >> "ZSN_O_Soldier_AAR_F"] call BIS_fnc_loadInventory;};
+		if (count _units > 7) then {[_players select 7 select 2, missionconfigfile >> "CfgRespawnInventory" >> "ZSN_O_Soldier_AAT_F"] call BIS_fnc_loadInventory;};
 	};
+	_highestRanked = _players select 0 select 2;
+	[format ["%1 is the the squad leader, your callsign is %2", name _highestRanked, _grp]] remoteExec ["hint", _units];
 	{_x setVehiclePosition [(getpos zsn_respawn_east), [], 4]} forEach _units;
-	if (isClass(configFile >> "CfgPatches" >> "task_force_radio")) then 
-	{
+	if (isClass(configFile >> "CfgPatches" >> "task_force_radio")) then {
 		[player, false] remoteExec ["TFAR_fnc_forceSpectator", _units];
 	};
 	["Terminate"] remoteExec ["BIS_fnc_EGSpectator", _units];
-	[format ["%1 is the the squad leader, your callsign is %2", name _highestRanked, _grp]] remoteExec ["hint", _units];
 	zsn_wavecount_east = zsn_wavecount_east - 1;
 	publicVariable "zsn_wavecount_east";
 	["", "BLACK IN"] remoteexec ["titleText", _units];
@@ -107,19 +112,23 @@ zsn_spawnwave_west = {
 	_players sort false;
 	_grp = createGroup west;
 	{[_x select 2] join _grp} forEach _players;
-	_highestRanked = _players select 0 select 2;
-	if (zsn_radio_west) then
-	{
-		_highestRanked additem "itemradio";
-		_highestRanked assignItem "itemradio";
+	if (zsn_loadout_west) then {
+		if (count _units > 0) then {[_players select 0 select 2, missionconfigfile >> "CfgRespawnInventory" >> "ZSN_B_Soldier_SL_F"] call BIS_fnc_loadInventory;};
+		if (count _units > 1) then {[_players select 1 select 2, missionconfigfile >> "CfgRespawnInventory" >> "ZSN_B_Soldier_TL_F"] call BIS_fnc_loadInventory;};
+		if (count _units > 2) then {[_players select 2 select 2, missionconfigfile >> "CfgRespawnInventory" >> "ZSN_B_Soldier_LAT_F"] call BIS_fnc_loadInventory;};
+		if (count _units > 3) then {[_players select 3 select 2, missionconfigfile >> "CfgRespawnInventory" >> "ZSN_B_Soldier_AR_F"] call BIS_fnc_loadInventory;};
+		if (count _units > 4) then {[_players select 4 select 2, missionconfigfile >> "CfgRespawnInventory" >> "ZSN_B_Heavygunner_F"] call BIS_fnc_loadInventory;};
+		if (count _units > 5) then {[_players select 5 select 2, missionconfigfile >> "CfgRespawnInventory" >> "ZSN_B_Soldier_AT_F"] call BIS_fnc_loadInventory;};
+		if (count _units > 6) then {[_players select 6 select 2, missionconfigfile >> "CfgRespawnInventory" >> "ZSN_B_Soldier_AAR_F"] call BIS_fnc_loadInventory;};
+		if (count _units > 7) then {[_players select 7 select 2, missionconfigfile >> "CfgRespawnInventory" >> "ZSN_B_Soldier_AAT_F"] call BIS_fnc_loadInventory;};
 	};
+	_highestRanked = _players select 0 select 2;
+	[format ["%1 is the the squad leader, your callsign is %2", name _highestRanked, _grp]] remoteExec ["hint", _units];
 	{_x setVehiclePosition [(getpos zsn_respawn_west), [], 4]} forEach _units;
-	if (isClass(configFile >> "CfgPatches" >> "task_force_radio")) then 
-	{
+	if (isClass(configFile >> "CfgPatches" >> "task_force_radio")) then {
 		[player, false] remoteExec ["TFAR_fnc_forceSpectator", _units];
 	};
 	["Terminate"] remoteExec ["BIS_fnc_EGSpectator", _units];
-	[format ["%1 is the the squad leader, your callsign is %2", name _highestRanked, _grp]] remoteExec ["hint", _units];
 	zsn_wavecount_west = zsn_wavecount_west - 1;
 	publicVariable "zsn_wavecount_west";
 	["", "BLACK IN"] remoteexec ["titleText",  _units]; 	
@@ -133,18 +142,23 @@ zsn_spawnwave_resistance = {
 	_players sort false;
 	_grp = createGroup resistance;
 	{[_x select 2] join _grp} forEach _players;
-	_highestRanked = _players select 0 select 2;
-	if (zsn_radio_resistance) then {
-		_highestRanked additem "itemradio";
-		_highestRanked assignItem "itemradio";
+	if (zsn_loadout_resistance) then {
+		if (count _units > 0) then {[_players select 0 select 2, missionconfigfile >> "CfgRespawnInventory" >> "ZSN_I_Soldier_SL_F"] call BIS_fnc_loadInventory;};
+		if (count _units > 1) then {[_players select 1 select 2, missionconfigfile >> "CfgRespawnInventory" >> "ZSN_I_Soldier_TL_F"] call BIS_fnc_loadInventory;};
+		if (count _units > 2) then {[_players select 2 select 2, missionconfigfile >> "CfgRespawnInventory" >> "ZSN_I_Soldier_LAT_F"] call BIS_fnc_loadInventory;};
+		if (count _units > 3) then {[_players select 3 select 2, missionconfigfile >> "CfgRespawnInventory" >> "ZSN_I_Soldier_AR_F"] call BIS_fnc_loadInventory;};
+		if (count _units > 4) then {[_players select 4 select 2, missionconfigfile >> "CfgRespawnInventory" >> "ZSN_I_Soldier_M_F"] call BIS_fnc_loadInventory;};
+		if (count _units > 5) then {[_players select 5 select 2, missionconfigfile >> "CfgRespawnInventory" >> "ZSN_I_Soldier_AT_F"] call BIS_fnc_loadInventory;};
+		if (count _units > 6) then {[_players select 6 select 2, missionconfigfile >> "CfgRespawnInventory" >> "ZSN_I_Soldier_A_F"] call BIS_fnc_loadInventory;};
+		if (count _units > 7) then {[_players select 7 select 2, missionconfigfile >> "CfgRespawnInventory" >> "ZSN_I_Soldier_AAT_F"] call BIS_fnc_loadInventory;};
 	};
+	_highestRanked = _players select 0 select 2;
+	[format ["%1 is the the squad leader, your callsign is %2", name _highestRanked, _grp]] remoteExec ["hint", _units];
 	{_x setVehiclePosition [(getpos zsn_respawn_guerrila), [], 4]} forEach _units;
-	if (isClass(configFile >> "CfgPatches" >> "task_force_radio")) then 
-	{
+	if (isClass(configFile >> "CfgPatches" >> "task_force_radio")) then {
 		[player, false] remoteExec ["TFAR_fnc_forceSpectator", _units];
 	};
 	["Terminate"] remoteExec ["BIS_fnc_EGSpectator", _units];
-	[format ["%1 is the the squad leader, your callsign is %2", name _highestRanked, _grp]] remoteExec ["hint", _units];
 	zsn_wavecount_resistance = zsn_wavecount_resistance - 1;
 	publicVariable "zsn_wavecount_resistance";
 	["", "BLACK IN"] remoteexec ["titleText", _units];
