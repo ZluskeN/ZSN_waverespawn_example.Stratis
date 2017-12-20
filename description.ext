@@ -4,3 +4,259 @@ respawnButton = 0;
 DisabledAI = 1;
 enableDebugConsole = 2;
 respawnOnStart = -1;
+class CfgRespawnInventory
+{
+	class ZSN_B_Soldier_SL_F
+	{
+		weapons[] = {
+			"arifle_SPAR_01_khk_F",
+			"hgun_P07_F",
+			"Binocular"
+		};
+		magazines[] = {
+			"30Rnd_556x45_Stanag",
+			"30Rnd_556x45_Stanag",
+			"30Rnd_556x45_Stanag",
+			"30Rnd_556x45_Stanag",
+			"30Rnd_556x45_Stanag_Tracer_Red",
+			"30Rnd_556x45_Stanag_Tracer_Red",
+			"16Rnd_9x21_Mag",
+			"16Rnd_9x21_Mag",
+			"16Rnd_9x21_Mag",
+			"HandGrenade",
+			"HandGrenade",
+			"B_IR_Grenade",
+			"B_IR_Grenade",
+			"SmokeShell",
+			"SmokeShellGreen",
+			"SmokeShellBlue",
+			"SmokeShellOrange",
+			"Chemlight_green",
+			"Chemlight_green"
+		};
+		items[] = {
+			"FirstAidKit"
+		};
+		linkedItems[] = {
+			"V_PlateCarrierGL_rgr",
+			"H_HelmetSpecB",
+			"optic_Hamr",
+			"acc_pointer_IR",
+			"ItemGPS",
+			"ItemMap",
+			"ItemCompass",
+			"ItemWatch",
+			"ItemRadio",
+			"NVGoggles"
+		};
+		uniformClass = "U_B_CombatUniform_mcam_vest";
+		backpack = "";
+	};
+	class ZSN_B_Soldier_TL_F
+	{
+		weapons[] = {"arifle_SPAR_01_GL_khk_F","hgun_P07_F","Binocular"};
+		magazines[] = {"30Rnd_556x45_Stanag","30Rnd_556x45_Stanag","30Rnd_556x45_Stanag","30Rnd_556x45_Stanag","30Rnd_556x45_Stanag_Tracer_Red","30Rnd_556x45_Stanag_Tracer_Red","16Rnd_9x21_Mag","16Rnd_9x21_Mag","16Rnd_9x21_Mag","MiniGrenade","MiniGrenade","1Rnd_HE_Grenade_shell","1Rnd_HE_Grenade_shell","1Rnd_HE_Grenade_shell","1Rnd_HE_Grenade_shell","1Rnd_HE_Grenade_shell","1Rnd_HE_Grenade_shell","SmokeShell","SmokeShellGreen","SmokeShellBlue","SmokeShellOrange","Chemlight_green","Chemlight_green","1Rnd_Smoke_Grenade_shell","1Rnd_Smoke_Grenade_shell","1Rnd_SmokeBlue_Grenade_shell","1Rnd_SmokeGreen_Grenade_shell","1Rnd_SmokeOrange_Grenade_shell"};
+		items[] = {"FirstAidKit"};
+		linkedItems[] = {"optic_Hamr","acc_pointer_IR","V_PlateCarrierGL_rgr","H_HelmetSpecB","ItemGPS","ItemMap","ItemCompass","ItemWatch","ItemRadio","NVGoggles"};
+		uniformClass = "U_B_CombatUniform_mcam_vest";
+		backpack = "";
+	};
+	class ZSN_B_Heavygunner_F
+	{
+		weapons[] = {"MMG_02_sand_RCO_LP_F","hgun_P07_F"};
+		magazines[] = {"130Rnd_338_Mag","130Rnd_338_Mag","130Rnd_338_Mag","16Rnd_9x21_Mag","16Rnd_9x21_Mag","16Rnd_9x21_Mag","SmokeShell","SmokeShellGreen","Chemlight_green","Chemlight_green"};
+		items[] = {"FirstAidKit"};
+		linkedItems[] = {"V_PlateCarrier1_rgr","H_HelmetB","ItemMap","ItemCompass","ItemWatch","ItemRadio","NVGoggles"};
+		uniformClass = "U_B_CombatUniform_mcam";
+		backpack = "";
+	};
+	class ZSN_B_soldier_AT_F
+	{
+		weapons[] = {"arifle_SPAR_01_khk_F","launch_B_Titan_short_F","hgun_P07_F"};
+		magazines[] = {"30Rnd_556x45_Stanag","30Rnd_556x45_Stanag","30Rnd_556x45_Stanag","30Rnd_556x45_Stanag","30Rnd_556x45_Stanag","30Rnd_556x45_Stanag","16Rnd_9x21_Mag","16Rnd_9x21_Mag","16Rnd_9x21_Mag","Titan_AT","SmokeShell","SmokeShellGreen","Chemlight_green","Chemlight_green"};
+		items[] = {"FirstAidKit"};
+		linkedItems[] = {"optic_Holosight_khk_F","acc_pointer_IR","V_Chestrig_rgr","H_HelmetB_light","ItemMap","ItemCompass","ItemWatch","ItemRadio","NVGoggles"};
+		uniformClass = "U_B_CombatUniform_mcam";
+		backpack = "B_AssaultPack_mcamo_AT";
+	};
+	class ZSN_B_soldier_AAR_F
+	{
+		weapons[] = {"arifle_SPAR_01_khk_F","hgun_P07_F","Rangefinder"};
+		magazines[] = {"30Rnd_556x45_Stanag","30Rnd_556x45_Stanag","30Rnd_556x45_Stanag","30Rnd_556x45_Stanag","30Rnd_556x45_Stanag","30Rnd_556x45_Stanag","30Rnd_556x45_Stanag","30Rnd_556x45_Stanag","16Rnd_9x21_Mag","16Rnd_9x21_Mag","16Rnd_9x21_Mag","HandGrenade","HandGrenade","B_IR_Grenade","B_IR_Grenade","SmokeShell","SmokeShellGreen","Chemlight_green","Chemlight_green"};
+		items[] = {"FirstAidKit"};
+		linkedItems[] = {"optic_Aco","acc_pointer_IR","V_Chestrig_rgr","H_HelmetB_light","ItemMap","ItemCompass","ItemWatch","ItemRadio","NVGoggles"};
+		uniformClass = "U_B_CombatUniform_mcam_tshirt";
+		backpack = "B_Kitbag_rgr_AAR";
+	};
+	class ZSN_B_soldier_AAT_F
+	{
+		weapons[] = {"arifle_SPAR_01_khk_F","hgun_P07_F","Rangefinder"};
+		magazines[] = {"30Rnd_556x45_Stanag","30Rnd_556x45_Stanag","30Rnd_556x45_Stanag","30Rnd_556x45_Stanag","30Rnd_556x45_Stanag","30Rnd_556x45_Stanag","30Rnd_556x45_Stanag","30Rnd_556x45_Stanag","16Rnd_9x21_Mag","16Rnd_9x21_Mag","16Rnd_9x21_Mag","HandGrenade","HandGrenade","B_IR_Grenade","B_IR_Grenade","SmokeShell","SmokeShellGreen","Chemlight_green","Chemlight_green"};
+		items[] = {"FirstAidKit"};
+		linkedItems[] = {"optic_Aco","acc_pointer_IR","V_Chestrig_rgr","H_HelmetB_light","ItemMap","ItemCompass","ItemWatch","ItemRadio","NVGoggles"};
+		uniformClass = "U_B_CombatUniform_mcam_tshirt";
+		backpack = "B_Carryall_mcamo_AAT";
+	};
+	class ZSN_B_soldier_LAT_F
+	{
+		weapons[] = {"arifle_SPAR_01_khk_F","launch_NLAW_F","hgun_P07_F"};
+		magazines[] = {"30Rnd_556x45_Stanag","30Rnd_556x45_Stanag","30Rnd_556x45_Stanag","30Rnd_556x45_Stanag","30Rnd_556x45_Stanag","30Rnd_556x45_Stanag","16Rnd_9x21_Mag","16Rnd_9x21_Mag","16Rnd_9x21_Mag","Titan_AT","SmokeShell","SmokeShellGreen","Chemlight_green","Chemlight_green"};
+		items[] = {"FirstAidKit"};
+		linkedItems[] = {"optic_Aco","acc_pointer_IR","V_Chestrig_rgr","H_HelmetB_light","ItemMap","ItemCompass","ItemWatch","ItemRadio","NVGoggles"};
+		uniformClass = "U_B_CombatUniform_mcam";
+		backpack = "B_AssaultPack_rgr_LAT";
+	};
+	class ZSN_B_Soldier_AR_F
+	{
+		weapons[] = {"arifle_SPAR_02_khk_F","hgun_P07_F"};
+		magazines[] = {"150Rnd_556x45_Drum_Mag_F","150Rnd_556x45_Drum_Mag_F","150Rnd_556x45_Drum_Mag_F","150Rnd_556x45_Drum_Mag_F","150Rnd_556x45_Drum_Mag_F","150Rnd_556x45_Drum_Mag_F","16Rnd_9x21_Mag","16Rnd_9x21_Mag","16Rnd_9x21_Mag","HandGrenade","SmokeShell","SmokeShellGreen","Chemlight_green","Chemlight_green"};
+		items[] = {"FirstAidKit"};
+		linkedItems[] = {"acc_pointer_IR","bipod_01_F_khk","V_PlateCarrier2_rgr","H_HelmetB_grass","ItemMap","ItemCompass","ItemWatch","ItemRadio","NVGoggles"};
+		uniformClass = "U_B_CombatUniform_mcam_tshirt";
+		backpack = "";
+	};
+	class ZSN_O_Soldier_SL_F
+	{
+		weapons[] = {"arifle_Katiba_ARCO_pointer_F","hgun_Rook40_F","Binocular"};
+		magazines[] = {"30Rnd_65x39_caseless_green","30Rnd_65x39_caseless_green","30Rnd_65x39_caseless_green","30Rnd_65x39_caseless_green","30Rnd_65x39_caseless_green_mag_Tracer","30Rnd_65x39_caseless_green_mag_Tracer","16Rnd_9x21_Mag","16Rnd_9x21_Mag","16Rnd_9x21_Mag","HandGrenade","HandGrenade","O_IR_Grenade","O_IR_Grenade","SmokeShell","SmokeShellRed","SmokeShellOrange","SmokeShellYellow","Chemlight_red","Chemlight_red"};
+		items[] = {"FirstAidKit"};
+		linkedItems[] = {"V_TacVest_khk","H_HelmetCrew_O","ItemGPS","ItemMap","ItemCompass","ItemWatch","ItemRadio","NVGoggles_OPFOR"};
+		uniformClass = "U_O_CombatUniform_ocamo";
+		backpack = "";
+	};
+	class ZSN_O_Soldier_TL_F
+	{
+		weapons[] = {"arifle_Katiba_GL_ARCO_pointer_F","hgun_Rook40_F","Binocular"};
+		magazines[] = {"30Rnd_65x39_caseless_green","30Rnd_65x39_caseless_green","30Rnd_65x39_caseless_green","30Rnd_65x39_caseless_green","30Rnd_65x39_caseless_green_mag_Tracer","30Rnd_65x39_caseless_green_mag_Tracer","16Rnd_9x21_Mag","16Rnd_9x21_Mag","16Rnd_9x21_Mag","MiniGrenade","MiniGrenade","1Rnd_HE_Grenade_shell","1Rnd_HE_Grenade_shell","1Rnd_HE_Grenade_shell","1Rnd_HE_Grenade_shell","1Rnd_HE_Grenade_shell","1Rnd_HE_Grenade_shell","SmokeShell","SmokeShellRed","SmokeShellOrange","SmokeShellYellow","Chemlight_red","Chemlight_red","1Rnd_Smoke_Grenade_shell","1Rnd_Smoke_Grenade_shell","1Rnd_SmokeRed_Grenade_shell","1Rnd_SmokeOrange_Grenade_shell","1Rnd_SmokeYellow_Grenade_shell"};
+		items[] = {"FirstAidKit"};
+		linkedItems[] = {"V_HarnessOGL_brn","H_HelmetCrew_O","ItemGPS","ItemMap","ItemCompass","ItemWatch","ItemRadio","NVGoggles_OPFOR"};
+		uniformClass = "U_O_CombatUniform_ocamo";
+		backpack = "";
+	};
+	class ZSN_O_Heavygunner_F
+	{
+		weapons[] = {"MMG_01_hex_ARCO_LP_F","hgun_Rook40_F"};
+		magazines[] = {"150Rnd_93x64_Mag","150Rnd_93x64_Mag","150Rnd_93x64_Mag","16Rnd_9x21_Mag","16Rnd_9x21_Mag","16Rnd_9x21_Mag","SmokeShell","SmokeShellRed","Chemlight_red","Chemlight_red"};
+		items[] = {"FirstAidKit"};
+		linkedItems[] = {"V_HarnessO_brn","H_HelmetCrew_O","ItemMap","ItemCompass","ItemWatch","ItemRadio","NVGoggles_OPFOR"};
+		uniformClass = "U_O_CombatUniform_ocamo";
+		backpack = "";
+	};
+	class ZSN_O_soldier_AT_F
+	{
+		weapons[] = {"arifle_Katiba_C_ACO_pointer_F","launch_O_Titan_short_F","hgun_Rook40_F"};
+		magazines[] = {"30Rnd_65x39_caseless_green","30Rnd_65x39_caseless_green","30Rnd_65x39_caseless_green","30Rnd_65x39_caseless_green","30Rnd_65x39_caseless_green","30Rnd_65x39_caseless_green","16Rnd_9x21_Mag","16Rnd_9x21_Mag","16Rnd_9x21_Mag","Titan_AT","HandGrenade","HandGrenade","SmokeShell","SmokeShellRed","Chemlight_red","Chemlight_red"};
+		items[] = {"FirstAidKit"};
+		linkedItems[] = {"V_TacVest_khk","H_HelmetCrew_O","ItemMap","ItemCompass","ItemWatch","ItemRadio","NVGoggles_OPFOR"};
+		uniformClass = "U_O_CombatUniform_ocamo";
+		backpack = "B_FieldPack_cbr_AT";
+	};
+	class ZSN_O_soldier_AAR_F
+	{
+		weapons[] = {"arifle_Katiba_ACO_pointer_F","hgun_Rook40_F","Rangefinder"};
+		magazines[] = {"30Rnd_65x39_caseless_green","30Rnd_65x39_caseless_green","30Rnd_65x39_caseless_green","30Rnd_65x39_caseless_green","30Rnd_65x39_caseless_green","30Rnd_65x39_caseless_green","30Rnd_65x39_caseless_green","30Rnd_65x39_caseless_green","16Rnd_9x21_Mag","16Rnd_9x21_Mag","16Rnd_9x21_Mag","HandGrenade","HandGrenade","O_IR_Grenade","O_IR_Grenade","SmokeShell","SmokeShellRed","Chemlight_red","Chemlight_red"};
+		items[] = {"FirstAidKit"};
+		linkedItems[] = {"V_Chestrig_khk","H_HelmetCrew_O","ItemMap","ItemCompass","ItemWatch","ItemRadio","NVGoggles_OPFOR"};
+		uniformClass = "U_O_CombatUniform_ocamo";
+		backpack = "B_Carryall_ocamo_AAR";
+	};
+	class ZSN_O_soldier_AAT_F
+	{
+		weapons[] = {"arifle_Katiba_ACO_pointer_F","hgun_Rook40_F","Rangefinder"};
+		magazines[] = {"30Rnd_65x39_caseless_green","30Rnd_65x39_caseless_green","30Rnd_65x39_caseless_green","30Rnd_65x39_caseless_green","30Rnd_65x39_caseless_green","30Rnd_65x39_caseless_green","30Rnd_65x39_caseless_green","30Rnd_65x39_caseless_green","16Rnd_9x21_Mag","16Rnd_9x21_Mag","16Rnd_9x21_Mag","HandGrenade","HandGrenade","O_IR_Grenade","O_IR_Grenade","SmokeShell","SmokeShellRed","Chemlight_red","Chemlight_red"};
+		items[] = {"FirstAidKit"};
+		linkedItems[] = {"V_Chestrig_khk","H_HelmetCrew_O","ItemMap","ItemCompass","ItemWatch","ItemRadio","NVGoggles_OPFOR"};
+		uniformClass = "U_O_CombatUniform_ocamo";
+		backpack = "B_Carryall_cbr_AAT";
+	};
+	class ZSN_O_soldier_LAT_F
+	{
+		weapons[] = {"arifle_Katiba_ACO_F","launch_RPG32_F","hgun_Rook40_F"};
+		magazines[] = {"30Rnd_65x39_caseless_green","30Rnd_65x39_caseless_green","30Rnd_65x39_caseless_green","30Rnd_65x39_caseless_green","30Rnd_65x39_caseless_green","30Rnd_65x39_caseless_green","16Rnd_9x21_Mag","16Rnd_9x21_Mag","16Rnd_9x21_Mag","RPG32_F","SmokeShell","SmokeShellRed","Chemlight_red","Chemlight_red"};
+		items[] = {"FirstAidKit"};
+		linkedItems[] = {"V_TacVest_khk","H_HelmetCrew_O","ItemMap","ItemCompass","ItemWatch","ItemRadio","NVGoggles_OPFOR"};
+		uniformClass = "U_O_CombatUniform_ocamo";
+		backpack = "B_FieldPack_cbr_LAT";
+	};
+	class ZSN_O_Soldier_AR_F
+	{
+		weapons[] = {"LMG_Mk200_F","hgun_Rook40_F"};
+		magazines[] = {"200Rnd_65x39_cased_Box","200Rnd_65x39_cased_Box","200Rnd_65x39_cased_Box","200Rnd_65x39_cased_Box","16Rnd_9x21_Mag","16Rnd_9x21_Mag","16Rnd_9x21_Mag","HandGrenade","HandGrenade","SmokeShell","SmokeShellRed","Chemlight_red","Chemlight_red"};
+		items[] = {"FirstAidKit"};
+		linkedItems[] = {"acc_pointer_IR","bipod_02_F_blk","V_HarnessO_brn","H_HelmetO_ocamo","ItemMap","ItemCompass","ItemWatch","ItemRadio","NVGoggles_OPFOR"};
+		uniformClass = "U_O_CombatUniform_ocamo";
+		backpack = "";
+	};
+	class ZSN_I_Soldier_SL_F
+	{
+		weapons[] = {"arifle_Mk20_plain_F","hgun_Pistol_heavy_01_F","Binocular"};
+		magazines[] = {"30Rnd_556x45_Stanag","30Rnd_556x45_Stanag","30Rnd_556x45_Stanag","30Rnd_556x45_Stanag","30Rnd_556x45_Stanag_Tracer_Yellow","30Rnd_556x45_Stanag_Tracer_Yellow","11Rnd_45ACP_Mag","11Rnd_45ACP_Mag","11Rnd_45ACP_Mag","HandGrenade","HandGrenade","I_IR_Grenade","I_IR_Grenade","SmokeShell","SmokeShellGreen","SmokeShellOrange","SmokeShellPurple","Chemlight_green","Chemlight_green"};
+		items[] = {"FirstAidKit"};
+		linkedItems[] = {"optic_MRCO","acc_pointer_IR","V_PlateCarrierIA2_dgtl","H_HelmetIA","ItemGPS","ItemMap","ItemCompass","ItemWatch","ItemRadio","NVGoggles_INDEP"};
+		uniformClass = "U_I_CombatUniform_shortsleeve";
+		backpack = "";
+	};
+	class ZSN_I_Soldier_TL_F
+	{
+		weapons[] = {"arifle_Mk20_GL_plain_F","hgun_Pistol_heavy_01_F","Binocular"};
+		magazines[] = {"30Rnd_556x45_Stanag","30Rnd_556x45_Stanag","30Rnd_556x45_Stanag","30Rnd_556x45_Stanag","30Rnd_556x45_Stanag_Tracer_Yellow","30Rnd_556x45_Stanag_Tracer_Yellow","11Rnd_45ACP_Mag","11Rnd_45ACP_Mag","11Rnd_45ACP_Mag","MiniGrenade","MiniGrenade","1Rnd_HE_Grenade_shell","1Rnd_HE_Grenade_shell","1Rnd_HE_Grenade_shell","1Rnd_HE_Grenade_shell","1Rnd_HE_Grenade_shell","1Rnd_HE_Grenade_shell","SmokeShell","SmokeShellGreen","SmokeShellOrange","SmokeShellPurple","Chemlight_green","Chemlight_green","1Rnd_Smoke_Grenade_shell","1Rnd_Smoke_Grenade_shell","1Rnd_SmokeGreen_Grenade_shell","1Rnd_SmokeOrange_Grenade_shell","1Rnd_SmokePurple_Grenade_shell"};
+		items[] = {"FirstAidKit"};
+		linkedItems[] = {"optic_MRCO","acc_pointer_IR","V_PlateCarrierIAGL_dgtl","H_HelmetIA","ItemGPS","ItemMap","ItemCompass","ItemWatch","ItemRadio","NVGoggles_INDEP"};
+		uniformClass = "U_I_CombatUniform";
+		backpack = "";
+	};
+	class ZSN_I_Soldier_AR_F
+	{
+		weapons[] = {"LMG_03_F","hgun_Pistol_heavy_01_F"};
+		magazines[] = {"200Rnd_556x45_Box_F","200Rnd_556x45_Box_F","200Rnd_556x45_Box_F","11Rnd_45ACP_Mag","11Rnd_45ACP_Mag","11Rnd_45ACP_Mag","HandGrenade","HandGrenade","SmokeShell","SmokeShellGreen","Chemlight_green","Chemlight_green"};
+		items[] = {"FirstAidKit"};
+		linkedItems[] = {"acc_pointer_IR","V_PlateCarrierIA2_dgtl","H_HelmetIA_camo","ItemMap","ItemCompass","ItemWatch","ItemRadio","NVGoggles_INDEP"};
+		uniformClass = "U_I_CombatUniform_shortsleeve";
+		backpack = "";
+	};
+	class ZSN_I_soldier_AT_F
+	{
+		weapons[] = {"arifle_Mk20c_plain_F","launch_I_Titan_short_F","hgun_Pistol_heavy_01_F"};
+		magazines[] = {"30Rnd_556x45_Stanag","30Rnd_556x45_Stanag","30Rnd_556x45_Stanag","30Rnd_556x45_Stanag","30Rnd_556x45_Stanag","30Rnd_556x45_Stanag","11Rnd_45ACP_Mag","11Rnd_45ACP_Mag","11Rnd_45ACP_Mag","Titan_AT","HandGrenade","HandGrenade","SmokeShell","SmokeShellGreen","Chemlight_green","Chemlight_green"};
+		items[] = {"FirstAidKit"};
+		linkedItems[] = {"optic_ACO_grn","acc_pointer_IR","V_PlateCarrierIA2_dgtl","H_HelmetIA_camo","ItemMap","ItemCompass","ItemWatch","ItemRadio","NVGoggles_INDEP"};
+		uniformClass = "U_I_CombatUniform";
+		backpack = "I_Fieldpack_oli_AT";
+	};
+	class ZSN_I_soldier_A_F
+	{
+		weapons[] = {"arifle_Mk20_plain_F","hgun_Pistol_heavy_01_F"};
+		magazines[] = {"30Rnd_556x45_Stanag","30Rnd_556x45_Stanag","30Rnd_556x45_Stanag","30Rnd_556x45_Stanag","30Rnd_556x45_Stanag","30Rnd_556x45_Stanag","30Rnd_556x45_Stanag","30Rnd_556x45_Stanag","30Rnd_556x45_Stanag","30Rnd_556x45_Stanag","30Rnd_556x45_Stanag","30Rnd_556x45_Stanag","11Rnd_45ACP_Mag","11Rnd_45ACP_Mag","11Rnd_45ACP_Mag","HandGrenade","HandGrenade","SmokeShell","SmokeShellGreen","Chemlight_green","Chemlight_green"};
+		items[] = {"FirstAidKit"};
+		linkedItems[] = {"optic_ACO_grn","acc_pointer_IR","V_PlateCarrierIA1_dgtl","H_HelmetIA_net","ItemMap","ItemCompass","ItemWatch","ItemRadio","NVGoggles_INDEP"};
+		uniformClass = "U_I_CombatUniform_shortsleeve";
+		backpack = "I_Fieldpack_oli_Ammo";
+	};
+	class ZSN_I_soldier_AAT_F
+	{
+		weapons[] = {"arifle_Mk20_plain_F","hgun_Pistol_heavy_01_F","Rangefinder"};
+		magazines[] = {"30Rnd_556x45_Stanag","30Rnd_556x45_Stanag","30Rnd_556x45_Stanag","30Rnd_556x45_Stanag","30Rnd_556x45_Stanag","30Rnd_556x45_Stanag","30Rnd_556x45_Stanag","30Rnd_556x45_Stanag","11Rnd_45ACP_Mag","11Rnd_45ACP_Mag","11Rnd_45ACP_Mag","HandGrenade","HandGrenade","I_IR_Grenade","I_IR_Grenade","SmokeShell","SmokeShellGreen","Chemlight_green","Chemlight_green"};
+		items[] = {"FirstAidKit"};
+		linkedItems[] = {"optic_ACO_grn","acc_pointer_IR","V_Chestrig_oli","H_HelmetIA","ItemMap","ItemCompass","ItemWatch","ItemRadio","NVGoggles_INDEP"};
+		uniformClass = "U_I_CombatUniform_tshirt";
+		backpack = "I_Carryall_oli_AAT";
+	};
+	class ZSN_I_soldier_LAT_F
+	{
+		weapons[] = {"arifle_Mk20_plain_F","launch_NLAW_F","hgun_Pistol_heavy_01_F"};
+		magazines[] = {"30Rnd_556x45_Stanag","30Rnd_556x45_Stanag","30Rnd_556x45_Stanag","30Rnd_556x45_Stanag","30Rnd_556x45_Stanag","30Rnd_556x45_Stanag","11Rnd_45ACP_Mag","11Rnd_45ACP_Mag","11Rnd_45ACP_Mag","NLAW_F","SmokeShell","SmokeShellGreen","Chemlight_green","Chemlight_green"};
+		items[] = {"FirstAidKit"};
+		linkedItems[] = {"optic_ACO_grn","acc_pointer_IR","V_PlateCarrierIA2_dgtl","H_HelmetIA","ItemMap","ItemCompass","ItemWatch","ItemRadio","NVGoggles_INDEP"};
+		uniformClass = "U_I_CombatUniform";
+		backpack = "I_Fieldpack_oli_LAT";
+	};
+	class ZSN_I_Soldier_M_F
+	{
+		weapons[] = {"srifle_DMR_03_khaki_F","hgun_Pistol_heavy_01_F"};
+		magazines[] = {"20Rnd_762x51_Mag","20Rnd_762x51_Mag","20Rnd_762x51_Mag","20Rnd_762x51_Mag","20Rnd_762x51_Mag","20Rnd_762x51_Mag","20Rnd_762x51_Mag","20Rnd_762x51_Mag","11Rnd_45ACP_Mag","11Rnd_45ACP_Mag","11Rnd_45ACP_Mag","HandGrenade","HandGrenade","SmokeShell","SmokeShellGreen","Chemlight_green","Chemlight_green"};
+		items[] = {"FirstAidKit"};
+		linkedItems[] = {"optic_MRCO","acc_pointer_IR","bipod_03_F_blk","V_PlateCarrierIA1_dgtl","H_HelmetIA","ItemMap","ItemCompass","ItemWatch","ItemRadio","NVGoggles_INDEP"};
+		uniformClass = "U_I_CombatUniform";
+		backpack = "";
+	};
+};
