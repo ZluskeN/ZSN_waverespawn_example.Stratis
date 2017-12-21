@@ -16,7 +16,7 @@ Wave Size: The number of players to include in each wave, default is 4
 
 Wave count: The max number of waves to respawn, default is -1 (infinite)
 
-Give radio: whether or not to issue squad leader an itemradio, default is true
+Custom Loadout: New wave gets custom loadouts defined in description.ext, default is true
 
 PvP: whether or not this is a PvP mission, this determines what kind of end trigger will be used when one side runs out of "lives". Default is false
 
