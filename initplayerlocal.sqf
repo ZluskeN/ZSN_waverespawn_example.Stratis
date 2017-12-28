@@ -1,3 +1,5 @@
+// Save inventory if altered in editor, to load later on respawn
+[player, [missionNamespace, "inventory_var"]] call BIS_fnc_saveInventory;
 
 // Give FNGs safety vests, so they are easier to keep track of
 if (isMultiplayer) then {
@@ -23,9 +25,6 @@ if (isMultiplayer) then {
 	};
 };
 
-// Save inventory if altered in editor, to load later on respawn
-[player, [missionNamespace, "inventory_var"]] call BIS_fnc_saveInventory;
-
 // Remove magazine from gun and add it to inventory
 if (currentWeapon player isKindOf ["Rifle_Base_F", configFile >> "CfgWeapons"]) then {
 	player addmagazine currentMagazine player;
@@ -50,31 +49,30 @@ player addEventHandler ["Respawn", {
 			if ((zsn_wavecount_east ^ 2) >= 1) then {
 				if ((zsn_wavesize_east - (count list zsn_eplayer_trg)) > 1) then {
 					hint format ["Wave Respawn is in effect, wave size is %1. You will respawn when %2 more players die.", zsn_wavesize_east, (zsn_wavesize_east - (count list zsn_eplayer_trg + 1))];
-					} else {
+				} else {
 					hint format ["Wave Respawn is in effect, wave size is %1.", zsn_wavesize_east];
-					};
 				};
 			};
+		};
 		case west: {
 			if ((zsn_wavecount_west ^ 2) >= 1) then {
 				if ((zsn_wavesize_west - (count list zsn_wplayer_trg)) > 1) then {
 					hint format ["Wave Respawn is in effect, wave size is %1. You will respawn when %2 more players die.", zsn_wavesize_west, (zsn_wavesize_west - (count list zsn_wplayer_trg + 1))];
-					} else {
+				} else {
 					hint format ["Wave Respawn is in effect, wave size is %1.", zsn_wavesize_west];
-					};
 				};
 			};
+		};
 		case resistance: {
 			if ((zsn_wavecount_resistance ^ 2) >= 1) then {
 				if ((zsn_wavesize_resistance - (count list zsn_gplayer_trg)) > 1) then {
 					hint format ["Wave Respawn is in effect, wave size is %1. You will respawn when %2 more players die.", zsn_wavesize_resistance, zsn_wavesize_resistance - (count list zsn_gplayer_trg + 1)];
 				} else {
-				hint format ["Wave Respawn is in effect, wave size is %1.", zsn_wavesize_resistance];
+					hint format ["Wave Respawn is in effect, wave size is %1.", zsn_wavesize_resistance];
 				};	
 			};
 		};
 	};
 	[player, [missionNamespace, "inventory_var"]] call BIS_fnc_loadInventory;
-	[player] join createGroup CIVILIAN;
 	titleText ["", "BLACK IN"];
 }];

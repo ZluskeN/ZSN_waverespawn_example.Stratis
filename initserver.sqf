@@ -1,14 +1,15 @@
 [resistance] remoteExec ["zsn_waverespawn", 2];
-[west, 4, 6, true, true] remoteExec ["zsn_waverespawn", 2];
-[east, 6, 4, true, true] remoteExec ["zsn_waverespawn", 2];
+[west, 4, 6, true, true, west] remoteExec ["zsn_waverespawn", 2];
+[east, 6, 4, true, true, east] remoteExec ["zsn_waverespawn", 2];
 
 zsn_waverespawn = {
 	params [
-		["_zsn_side", west, [east]],		//Side to execute wave respawn for 		(SIDE, Default west)
-		["_zsn_wavesize", 8, [8]],		//Size of respawn waves				(NUMBER, Default 4)
-		["_zsn_wavecount", -1, [8]],		//Number of respawn waves 			(NUMBER, Default -1 = infinite)
-		["_zsn_loadout", true, [false]],	//new wave receives custom gear			(BOOLEAN, Default true)
-		["_zsn_pvp", false, [true]]		//pvp or coop					(BOOLEAN, Default false = coop)
+		["_zsn_side", west, [east]],			//Side to execute wave respawn for 		(SIDE, Default west)
+		["_zsn_wavesize", 8, [8]],			//Size of respawn waves				(NUMBER, Default 4)
+		["_zsn_wavecount", -1, [8]],			//Number of respawn waves 			(NUMBER, Default -1 = infinite)
+		["_zsn_loadout", true, [false]],		//new wave receives custom gear			(BOOLEAN, Default true)
+		["_zsn_pvp", false, [true]],			//pvp or coop					(BOOLEAN, Default false = coop)
+		["_zsn_respawnside", _this select 0, [east]]	//Side to execute wave respawn for 		(SIDE, Default same as _zsn_side)
 	];
 	switch (_zsn_side) do {
 		case east: {
@@ -21,7 +22,9 @@ zsn_waverespawn = {
 			if (!isNil ("zsn_espawn_trg")) then {deleteVehicle zsn_espawn_trg;};
 			zsn_espawn_trg = createTrigger ["EmptyDetector", getmarkerPos "respawn_east"];
 			zsn_espawn_trg setTriggerActivation ["civ", "PRESENT", true];
-			zsn_espawn_trg setTriggerStatements ["isServer && {Side _x == civilian} count thislist >= zsn_wavesize_east && (zsn_wavecount_east ^ 2) >= 1", "thisList call zsn_spawnwave_east;",""];
+			if (_zsn_respawnside == west) then {zsn_espawn_trg setTriggerStatements ["isServer && {Side _x == civilian} count thislist >= zsn_wavesize_east && (zsn_wavecount_east ^ 2) >= 1", "thisList call zsn_spawnwave_west;",""];};
+			if (_zsn_respawnside == east) then {zsn_espawn_trg setTriggerStatements ["isServer && {Side _x == civilian} count thislist >= zsn_wavesize_east && (zsn_wavecount_east ^ 2) >= 1", "thisList call zsn_spawnwave_east;",""];};
+			if (_zsn_respawnside == resistance) then {zsn_espawn_trg setTriggerStatements ["isServer && {Side _x == civilian} count thislist >= zsn_wavesize_east && (zsn_wavecount_east ^ 2) >= 1", "thisList call zsn_spawnwave_resistance;",""];};
 			if (!isNil ("zsn_efail_trg")) then {deleteVehicle zsn_efail_trg;};
 			zsn_efail_trg = createTrigger ["EmptyDetector", getmarkerPos "respawn_east"];
 			zsn_efail_trg setTriggerActivation ["civ", "PRESENT", true];
@@ -41,7 +44,9 @@ zsn_waverespawn = {
 			if (!isNil ("zsn_wspawn_trg")) then {deleteVehicle zsn_wspawn_trg;};
 			zsn_wspawn_trg = createTrigger ["EmptyDetector", getmarkerPos "respawn_west"];
 			zsn_wspawn_trg setTriggerActivation ["civ", "PRESENT", true];
-			zsn_wspawn_trg setTriggerStatements ["isServer && {Side _x == civilian} count thislist >= zsn_wavesize_west && (zsn_wavecount_west ^ 2) >= 1", "thisList call zsn_spawnwave_west;",""];
+			if (_zsn_respawnside == west) then {zsn_wspawn_trg setTriggerStatements ["isServer && {Side _x == civilian} count thislist >= zsn_wavesize_west && (zsn_wavecount_west ^ 2) >= 1", "thisList call zsn_spawnwave_west;",""];};
+			if (_zsn_respawnside == east) then {zsn_wspawn_trg setTriggerStatements ["isServer && {Side _x == civilian} count thislist >= zsn_wavesize_west && (zsn_wavecount_west ^ 2) >= 1", "thisList call zsn_spawnwave_east;",""];};
+			if (_zsn_respawnside == resistance) then {zsn_wspawn_trg setTriggerStatements ["isServer && {Side _x == civilian} count thislist >= zsn_wavesize_west && (zsn_wavecount_west ^ 2) >= 1", "thisList call zsn_spawnwave_resistance;",""];};
 			if (!isNil ("zsn_wfail_trg")) then {deleteVehicle zsn_wfail_trg;};
 			zsn_wfail_trg = createTrigger ["EmptyDetector", getmarkerPos "respawn_west"];
 			zsn_wfail_trg setTriggerActivation ["civ", "PRESENT", true];
@@ -61,7 +66,9 @@ zsn_waverespawn = {
 			if (!isNil ("zsn_gspawn_trg")) then {deleteVehicle zsn_gspawn_trg;};
 			zsn_gspawn_trg = createTrigger ["EmptyDetector", getmarkerPos "respawn_guerrila"];
 			zsn_gspawn_trg setTriggerActivation ["civ", "PRESENT", true];
-			zsn_gspawn_trg setTriggerStatements ["isServer && {Side _x == civilian} count thislist >= zsn_wavesize_resistance && (zsn_wavecount_resistance ^ 2) >= 1", "thisList call zsn_spawnwave_resistance;",""];
+			if (_zsn_respawnside == west) then {zsn_gspawn_trg setTriggerStatements ["isServer && {Side _x == civilian} count thislist >= zsn_wavesize_resistance && (zsn_wavecount_resistance ^ 2) >= 1", "thisList call zsn_spawnwave_west;",""];};
+			if (_zsn_respawnside == east) then {zsn_gspawn_trg setTriggerStatements ["isServer && {Side _x == civilian} count thislist >= zsn_wavesize_resistance && (zsn_wavecount_resistance ^ 2) >= 1", "thisList call zsn_spawnwave_east;",""];};
+			if (_zsn_respawnside == resistance) then {zsn_gspawn_trg setTriggerStatements ["isServer && {Side _x == civilian} count thislist >= zsn_wavesize_resistance && (zsn_wavecount_resistance ^ 2) >= 1", "thisList call zsn_spawnwave_resistance;",""];};
 			if (!isNil ("zsn_gfail_trg")) then {deleteVehicle zsn_gfail_trg;};
 			zsn_gfail_trg = createTrigger ["EmptyDetector", getmarkerPos "respawn_guerrila"];
 			zsn_gfail_trg setTriggerActivation ["civ", "PRESENT", true];
@@ -72,6 +79,19 @@ zsn_waverespawn = {
 			};
 		};
 	};
+	addMissionEventHandler ["entityKilled", {
+		params ["_unit"]; 
+		if (!isPlayer _unit) then {
+			_unit setVariable ["loadout", getUnitLoadout _unit]
+    		};
+  	}];
+	addMissionEventHandler ["entityRespawned", {
+		params ["_unit"];
+		[_unit] join createGroup CIVILIAN;
+		if (!isPlayer _unit) then {
+			_unit setUnitLoadout (_unit getVariable "loadout")
+		};
+	}];
 };
 
 zsn_spawnwave_east = {
