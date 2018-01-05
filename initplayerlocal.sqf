@@ -74,5 +74,6 @@ player addEventHandler ["Respawn", {
 		};
 	};
 	[player, [missionNamespace, "inventory_var"]] call BIS_fnc_loadInventory;
+	[player] join createGroup CIVILIAN;
 	titleText ["", "BLACK IN"];
 }];
