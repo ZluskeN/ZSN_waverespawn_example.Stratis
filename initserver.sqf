@@ -87,8 +87,8 @@ zsn_waverespawn = {
   	}];
 	addMissionEventHandler ["entityRespawned", {
 		params ["_unit"];
-		[_unit] join createGroup CIVILIAN;
 		if (!isPlayer _unit) then {
+			[_unit] join createGroup CIVILIAN;
 			_unit setUnitLoadout (_unit getVariable "loadout")
 		};
 	}];
