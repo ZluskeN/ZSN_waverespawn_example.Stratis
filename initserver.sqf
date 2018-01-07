@@ -1,6 +1,6 @@
 [resistance] remoteExec ["zsn_waverespawn", 2];
-[west, 4, 6, true, true, west] remoteExec ["zsn_waverespawn", 2];
-[east, 6, 4, true, true, east] remoteExec ["zsn_waverespawn", 2];
+[west, 5, 6, true, true, west] remoteExec ["zsn_waverespawn", 2];
+[east, 6, 5, true, true, east] remoteExec ["zsn_waverespawn", 2];
 
 zsn_waverespawn = {
 	params [
