@@ -5,7 +5,7 @@
 zsn_waverespawn = {
 	params [
 		["_zsn_side", west, [east]],			//Side to execute wave respawn for 		(SIDE, Default west)
-		["_zsn_wavesize", 8, [8]],			//Size of respawn waves				(NUMBER, Default 4)
+		["_zsn_wavesize", 9, [8]],			//Size of respawn waves				(NUMBER, Default 4)
 		["_zsn_wavecount", -1, [8]],			//Number of respawn waves 			(NUMBER, Default -1 = infinite)
 		["_zsn_loadout", true, [false]],		//new wave receives custom gear			(BOOLEAN, Default true)
 		["_zsn_pvp", false, [true]],			//pvp or coop					(BOOLEAN, Default false = coop)
@@ -103,14 +103,15 @@ zsn_spawnwave_east = {
 	_grp = createGroup east;
 	{[_x select 2] join _grp} forEach _players;
 	if (zsn_loadout_east) then {
-		if (count _units > 0) then {[_players select 0 select 2, missionconfigfile >> "CfgRespawnInventory" >> "ZSN_O_Soldier_SL_F"] call BIS_fnc_loadInventory; _players select 0 select 2 assignTeam "BLUE";};
-		if (count _units > 1) then {[_players select 1 select 2, missionconfigfile >> "CfgRespawnInventory" >> "ZSN_O_Soldier_TL_F"] call BIS_fnc_loadInventory; _players select 1 select 2 assignTeam "RED";};
-		if (count _units > 2) then {[_players select 2 select 2, missionconfigfile >> "CfgRespawnInventory" >> "ZSN_O_Soldier_LAT_F"] call BIS_fnc_loadInventory; _players select 2 select 2 assignTeam "BLUE";};
-		if (count _units > 3) then {[_players select 3 select 2, missionconfigfile >> "CfgRespawnInventory" >> "ZSN_O_Soldier_AR_F"] call BIS_fnc_loadInventory; _players select 3 select 2 assignTeam "RED";};
-		if (count _units > 4) then {[_players select 4 select 2, missionconfigfile >> "CfgRespawnInventory" >> "ZSN_O_Heavygunner_F"] call BIS_fnc_loadInventory; _players select 4 select 2 assignTeam "BLUE";};
-		if (count _units > 5) then {[_players select 5 select 2, missionconfigfile >> "CfgRespawnInventory" >> "ZSN_O_Soldier_AT_F"] call BIS_fnc_loadInventory; _players select 5 select 2 assignTeam "RED";};
-		if (count _units > 6) then {[_players select 6 select 2, missionconfigfile >> "CfgRespawnInventory" >> "ZSN_O_Soldier_AAR_F"] call BIS_fnc_loadInventory; _players select 6 select 2 assignTeam "BLUE";};
-		if (count _units > 7) then {[_players select 7 select 2, missionconfigfile >> "CfgRespawnInventory" >> "ZSN_O_Soldier_AAT_F"] call BIS_fnc_loadInventory; _players select 7 select 2 assignTeam "RED";};
+		if (count _units > 0) then {[_players select 0 select 2, missionconfigfile >> "CfgRespawnInventory" >> "ZSN_O_Soldier_SL_F"] call BIS_fnc_loadInventory;};
+		if (count _units > 1) then {[_players select 1 select 2, missionconfigfile >> "CfgRespawnInventory" >> "ZSN_O_Soldier_TL_F"] call BIS_fnc_loadInventory; _players select 1 select 2 assignTeam "BLUE";};
+		if (count _units > 2) then {[_players select 2 select 2, missionconfigfile >> "CfgRespawnInventory" >> "ZSN_O_Soldier_TL_F"] call BIS_fnc_loadInventory; _players select 2 select 2 assignTeam "YELLOw";};
+		if (count _units > 3) then {[_players select 3 select 2, missionconfigfile >> "CfgRespawnInventory" >> "ZSN_O_Soldier_LAT_F"] call BIS_fnc_loadInventory; _players select 3 select 2 assignTeam "BLUE";};
+		if (count _units > 4) then {[_players select 4 select 2, missionconfigfile >> "CfgRespawnInventory" >> "ZSN_O_Soldier_AR_F"] call BIS_fnc_loadInventory; _players select 4 select 2 assignTeam "YELLOw";};
+		if (count _units > 5) then {[_players select 5 select 2, missionconfigfile >> "CfgRespawnInventory" >> "ZSN_O_Heavygunner_F"] call BIS_fnc_loadInventory; _players select 5 select 2 assignTeam "BLUE";};
+		if (count _units > 6) then {[_players select 6 select 2, missionconfigfile >> "CfgRespawnInventory" >> "ZSN_O_Soldier_AT_F"] call BIS_fnc_loadInventory; _players select 6 select 2 assignTeam "YELLOw";};
+		if (count _units > 7) then {[_players select 7 select 2, missionconfigfile >> "CfgRespawnInventory" >> "ZSN_O_Soldier_AAR_F"] call BIS_fnc_loadInventory; _players select 7 select 2 assignTeam "BLUE";};
+		if (count _units > 8) then {[_players select 8 select 2, missionconfigfile >> "CfgRespawnInventory" >> "ZSN_O_Soldier_AAT_F"] call BIS_fnc_loadInventory; _players select 8 select 2 assignTeam "YELLOw";};
 	};
 	_highestRanked = _players select 0 select 2;
 	[format ["%1 is the the squad leader, your callsign is %2", name _highestRanked, _grp]] remoteExec ["hint", _units];
@@ -133,14 +134,15 @@ zsn_spawnwave_west = {
 	_grp = createGroup west;
 	{[_x select 2] join _grp} forEach _players;
 	if (zsn_loadout_west) then {
-		if (count _units > 0) then {[_players select 0 select 2, missionconfigfile >> "CfgRespawnInventory" >> "ZSN_B_Soldier_SL_F"] call BIS_fnc_loadInventory; _players select 0 select 2 assignTeam "BLUE";};
-		if (count _units > 1) then {[_players select 1 select 2, missionconfigfile >> "CfgRespawnInventory" >> "ZSN_B_Soldier_TL_F"] call BIS_fnc_loadInventory; _players select 1 select 2 assignTeam "RED";};
-		if (count _units > 2) then {[_players select 2 select 2, missionconfigfile >> "CfgRespawnInventory" >> "ZSN_B_Soldier_LAT_F"] call BIS_fnc_loadInventory; _players select 2 select 2 assignTeam "BLUE";};
-		if (count _units > 3) then {[_players select 3 select 2, missionconfigfile >> "CfgRespawnInventory" >> "ZSN_B_Soldier_AR_F"] call BIS_fnc_loadInventory; _players select 3 select 2 assignTeam "RED";};
-		if (count _units > 4) then {[_players select 4 select 2, missionconfigfile >> "CfgRespawnInventory" >> "ZSN_B_Heavygunner_F"] call BIS_fnc_loadInventory; _players select 4 select 2 assignTeam "BLUE";};
-		if (count _units > 5) then {[_players select 5 select 2, missionconfigfile >> "CfgRespawnInventory" >> "ZSN_B_Soldier_AT_F"] call BIS_fnc_loadInventory; _players select 5 select 2 assignTeam "RED";};
-		if (count _units > 6) then {[_players select 6 select 2, missionconfigfile >> "CfgRespawnInventory" >> "ZSN_B_Soldier_AAR_F"] call BIS_fnc_loadInventory; _players select 6 select 2 assignTeam "BLUE";};
-		if (count _units > 7) then {[_players select 7 select 2, missionconfigfile >> "CfgRespawnInventory" >> "ZSN_B_Soldier_AAT_F"] call BIS_fnc_loadInventory; _players select 7 select 2 assignTeam "RED";};
+		if (count _units > 0) then {[_players select 0 select 2, missionconfigfile >> "CfgRespawnInventory" >> "ZSN_B_Soldier_SL_F"] call BIS_fnc_loadInventory;};
+		if (count _units > 1) then {[_players select 1 select 2, missionconfigfile >> "CfgRespawnInventory" >> "ZSN_B_Soldier_TL_F"] call BIS_fnc_loadInventory; _players select 1 select 2 assignTeam "BLUE";};
+		if (count _units > 2) then {[_players select 2 select 2, missionconfigfile >> "CfgRespawnInventory" >> "ZSN_B_Soldier_TL_F"] call BIS_fnc_loadInventory; _players select 2 select 2 assignTeam "YELLOw";};
+		if (count _units > 3) then {[_players select 3 select 2, missionconfigfile >> "CfgRespawnInventory" >> "ZSN_B_Soldier_LAT_F"] call BIS_fnc_loadInventory; _players select 3 select 2 assignTeam "BLUE";};
+		if (count _units > 4) then {[_players select 4 select 2, missionconfigfile >> "CfgRespawnInventory" >> "ZSN_B_Soldier_AR_F"] call BIS_fnc_loadInventory; _players select 4 select 2 assignTeam "YELLOw";};
+		if (count _units > 5) then {[_players select 5 select 2, missionconfigfile >> "CfgRespawnInventory" >> "ZSN_B_Heavygunner_F"] call BIS_fnc_loadInventory; _players select 5 select 2 assignTeam "BLUE";};
+		if (count _units > 6) then {[_players select 6 select 2, missionconfigfile >> "CfgRespawnInventory" >> "ZSN_B_Soldier_AT_F"] call BIS_fnc_loadInventory; _players select 6 select 2 assignTeam "YELLOw";};
+		if (count _units > 7) then {[_players select 7 select 2, missionconfigfile >> "CfgRespawnInventory" >> "ZSN_B_Soldier_AAR_F"] call BIS_fnc_loadInventory; _players select 7 select 2 assignTeam "BLUE";};
+		if (count _units > 8) then {[_players select 8 select 2, missionconfigfile >> "CfgRespawnInventory" >> "ZSN_B_Soldier_AAT_F"] call BIS_fnc_loadInventory; _players select 8 select 2 assignTeam "YELLOw";};
 	};
 	_highestRanked = _players select 0 select 2;
 	[format ["%1 is the the squad leader, your callsign is %2", name _highestRanked, _grp]] remoteExec ["hint", _units];
@@ -163,14 +165,15 @@ zsn_spawnwave_resistance = {
 	_grp = createGroup resistance;
 	{[_x select 2] join _grp} forEach _players;
 	if (zsn_loadout_resistance) then {
-		if (count _units > 0) then {[_players select 0 select 2, missionconfigfile >> "CfgRespawnInventory" >> "ZSN_I_Soldier_SL_F"] call BIS_fnc_loadInventory; _players select 0 select 2 assignTeam "BLUE";};
-		if (count _units > 1) then {[_players select 1 select 2, missionconfigfile >> "CfgRespawnInventory" >> "ZSN_I_Soldier_TL_F"] call BIS_fnc_loadInventory; _players select 1 select 2 assignTeam "RED";};
-		if (count _units > 2) then {[_players select 2 select 2, missionconfigfile >> "CfgRespawnInventory" >> "ZSN_I_Soldier_LAT_F"] call BIS_fnc_loadInventory; _players select 2 select 2 assignTeam "BLUE";};
-		if (count _units > 3) then {[_players select 3 select 2, missionconfigfile >> "CfgRespawnInventory" >> "ZSN_I_Soldier_AR_F"] call BIS_fnc_loadInventory; _players select 3 select 2 assignTeam "RED";};
-		if (count _units > 4) then {[_players select 4 select 2, missionconfigfile >> "CfgRespawnInventory" >> "ZSN_I_Soldier_M_F"] call BIS_fnc_loadInventory; _players select 4 select 2 assignTeam "BLUE";};
-		if (count _units > 5) then {[_players select 5 select 2, missionconfigfile >> "CfgRespawnInventory" >> "ZSN_I_Soldier_AT_F"] call BIS_fnc_loadInventory; _players select 5 select 2 assignTeam "RED";};
-		if (count _units > 6) then {[_players select 6 select 2, missionconfigfile >> "CfgRespawnInventory" >> "ZSN_I_Soldier_A_F"] call BIS_fnc_loadInventory; _players select 6 select 2 assignTeam "BLUE";};
-		if (count _units > 7) then {[_players select 7 select 2, missionconfigfile >> "CfgRespawnInventory" >> "ZSN_I_Soldier_AAT_F"] call BIS_fnc_loadInventory; _players select 7 select 2 assignTeam "RED";};
+		if (count _units > 0) then {[_players select 0 select 2, missionconfigfile >> "CfgRespawnInventory" >> "ZSN_I_Soldier_SL_F"] call BIS_fnc_loadInventory;};
+		if (count _units > 1) then {[_players select 1 select 2, missionconfigfile >> "CfgRespawnInventory" >> "ZSN_I_Soldier_TL_F"] call BIS_fnc_loadInventory; _players select 1 select 2 assignTeam "BLUE";};
+		if (count _units > 2) then {[_players select 2 select 2, missionconfigfile >> "CfgRespawnInventory" >> "ZSN_I_Soldier_TL_F"] call BIS_fnc_loadInventory; _players select 2 select 2 assignTeam "YELLOw";};
+		if (count _units > 3) then {[_players select 3 select 2, missionconfigfile >> "CfgRespawnInventory" >> "ZSN_I_Soldier_LAT_F"] call BIS_fnc_loadInventory; _players select 3 select 2 assignTeam "BLUE";};
+		if (count _units > 4) then {[_players select 4 select 2, missionconfigfile >> "CfgRespawnInventory" >> "ZSN_I_Soldier_AR_F"] call BIS_fnc_loadInventory; _players select 4 select 2 assignTeam "YELLOw";};
+		if (count _units > 5) then {[_players select 5 select 2, missionconfigfile >> "CfgRespawnInventory" >> "ZSN_I_Soldier_M_F"] call BIS_fnc_loadInventory; _players select 5 select 2 assignTeam "BLUE";};
+		if (count _units > 6) then {[_players select 6 select 2, missionconfigfile >> "CfgRespawnInventory" >> "ZSN_I_Soldier_AT_F"] call BIS_fnc_loadInventory; _players select 6 select 2 assignTeam "YELLOw";};
+		if (count _units > 7) then {[_players select 7 select 2, missionconfigfile >> "CfgRespawnInventory" >> "ZSN_I_Soldier_A_F"] call BIS_fnc_loadInventory; _players select 7 select 2 assignTeam "BLUE";};
+		if (count _units > 8) then {[_players select 8 select 2, missionconfigfile >> "CfgRespawnInventory" >> "ZSN_I_Soldier_AAT_F"] call BIS_fnc_loadInventory; _players select 8 select 2 assignTeam "YELLOw";};
 	};
 	_highestRanked = _players select 0 select 2;
 	[format ["%1 is the the squad leader, your callsign is %2", name _highestRanked, _grp]] remoteExec ["hint", _units];
