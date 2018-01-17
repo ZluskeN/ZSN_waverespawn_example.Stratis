@@ -14,11 +14,7 @@ if (isMultiplayer) then {
 				if (isClass(configFile >> "CfgPatches" >> "CUP_Creatures_Military_USMC")) then {
 					player addvest "CUP_V_B_LHDVest_Yellow";
 				} else {
-					if (601670 in (getDLCs 1)) then	{
-						player addvest "V_DeckCrew_yellow_F";
-					} else {
-						player addvest "V_safety_orange_F";
-					};
+					player addvest "V_DeckCrew_yellow_F";
 				};
 			};
 		};
