@@ -9,7 +9,7 @@ if (isMultiplayer) then {
 			player addvest "usm_vest_safety";
 		} else {
 			if (571710 in (getDLCs 1)) then	{
-				player addvest "V_safety_yellow_F";
+				player addvest selectRandom ["V_safety_yellow_F","V_safety_orange_F","V_safety_blue_F"];
 			} else {
 				if (isClass(configFile >> "CfgPatches" >> "CUP_Creatures_Military_USMC")) then {
 					player addvest "CUP_V_B_LHDVest_Yellow";
