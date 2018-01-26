@@ -5,11 +5,11 @@
 if (isMultiplayer) then {
 	if (isnil {squadParams player select 0 select 1}) then {
 		removeVest player; 
-		if (isClass(configFile >> "CfgPatches" >> "us_military_units")) then {	
-			player addvest "usm_vest_safety";
+		if (571710 in (getDLCs 1)) then	{
+			player addvest selectRandom ["V_safety_yellow_F","V_safety_orange_F","V_safety_blue_F"];
 		} else {
-			if (571710 in (getDLCs 1)) then	{
-				player addvest selectRandom ["V_safety_yellow_F","V_safety_orange_F","V_safety_blue_F"];
+			if (isClass(configFile >> "CfgPatches" >> "us_military_units")) then {	
+				player addvest "usm_vest_safety";
 			} else {
 				if (isClass(configFile >> "CfgPatches" >> "CUP_Creatures_Military_USMC")) then {
 					player addvest "CUP_V_B_LHDVest_Yellow";
