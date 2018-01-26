@@ -115,7 +115,7 @@ zsn_spawnwave_east = {
 	};
 	_highestRanked = _players select 0 select 2;
 	[format ["%1 is the the squad leader, your callsign is %2", name _highestRanked, _grp]] remoteExec ["hint", _units];
-	_spawnvehicle = "O_LSV_02_O_F" createVehicle getpos zsn_respawn_east;
+	_spawnvehicle = "O_LSV_02_O_Unarmed_F" createVehicle getpos zsn_respawn_east;
 	{_x setVehiclePosition [(getpos zsn_respawn_east), [], 4]} forEach _units;
 	if (isClass(configFile >> "CfgPatches" >> "task_force_radio")) then {
 		[player, false] remoteExec ["TFAR_fnc_forceSpectator", _units];
@@ -147,7 +147,7 @@ zsn_spawnwave_west = {
 	};
 	_highestRanked = _players select 0 select 2;
 	[format ["%1 is the the squad leader, your callsign is %2", name _highestRanked, _grp]] remoteExec ["hint", _units];
-	_spawnvehicle = "B_LSV_01_O_F" createVehicle getpos zsn_respawn_west;
+	_spawnvehicle = "B_LSV_01_O_Unarmed_F" createVehicle getpos zsn_respawn_west;
 	{_x setVehiclePosition [(getpos zsn_respawn_west), [], 4]} forEach _units;
 	if (isClass(configFile >> "CfgPatches" >> "task_force_radio")) then {
 		[player, false] remoteExec ["TFAR_fnc_forceSpectator", _units];
