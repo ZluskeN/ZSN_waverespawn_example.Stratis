@@ -7,7 +7,7 @@ zsn_waverespawn = {
 		["_zsn_side", west, [east]],			//Side to execute wave respawn for 		(SIDE, Default west)
 		["_zsn_wavesize", 9, [8]],			//Size of respawn waves				(NUMBER, Default 4)
 		["_zsn_wavecount", -1, [8]],			//Number of respawn waves 			(NUMBER, Default -1 = infinite)
-		["_zsn_loadout", true, [false]],		//new wave receives custom gear			(BOOLEAN, Default true)
+		["_zsn_loadout", false, [false]],		//new wave receives custom gear			(BOOLEAN, Default true)
 		["_zsn_pvp", false, [true]],			//pvp or coop					(BOOLEAN, Default false = coop)
 		["_zsn_respawnside", _this select 0, [east]]	//Side to execute wave respawn for 		(SIDE, Default same as _zsn_side)
 	];
@@ -112,10 +112,10 @@ zsn_spawnwave_east = {
 		if (count _units > 6) then {[_players select 6 select 2, missionconfigfile >> "CfgRespawnInventory" >> "ZSN_O_Soldier_AAR_F"] call BIS_fnc_loadInventory; _players select 6 select 2 assignTeam "BLUE";};
 		if (count _units > 7) then {[_players select 7 select 2, missionconfigfile >> "CfgRespawnInventory" >> "ZSN_O_Soldier_AAT_F"] call BIS_fnc_loadInventory; _players select 7 select 2 assignTeam "YELLOW";};
 		if (count _units > 8) then {[_players select 8 select 2, missionconfigfile >> "CfgRespawnInventory" >> "ZSN_O_Soldier_TL_F"] call BIS_fnc_loadInventory; _players select 8 select 2 assignTeam "BLUE";};
+		_spawnvehicle = "O_LSV_02_O_Unarmed_F" createVehicle getpos zsn_respawn_east;
 	};
 	_highestRanked = _players select 0 select 2;
 	[format ["%1 is the the squad leader, your callsign is %2", name _highestRanked, _grp]] remoteExec ["hint", _units];
-	_spawnvehicle = "O_LSV_02_O_Unarmed_F" createVehicle getpos zsn_respawn_east;
 	{_x setVehiclePosition [(getpos zsn_respawn_east), [], 4]} forEach _units;
 	if (isClass(configFile >> "CfgPatches" >> "task_force_radio")) then {
 		[player, false] remoteExec ["TFAR_fnc_forceSpectator", _units];
@@ -144,10 +144,10 @@ zsn_spawnwave_west = {
 		if (count _units > 6) then {[_players select 6 select 2, missionconfigfile >> "CfgRespawnInventory" >> "ZSN_B_Soldier_AAR_F"] call BIS_fnc_loadInventory; _players select 6 select 2 assignTeam "BLUE";};
 		if (count _units > 7) then {[_players select 7 select 2, missionconfigfile >> "CfgRespawnInventory" >> "ZSN_B_Soldier_AAT_F"] call BIS_fnc_loadInventory; _players select 7 select 2 assignTeam "YELLOW";};
 		if (count _units > 8) then {[_players select 8 select 2, missionconfigfile >> "CfgRespawnInventory" >> "ZSN_B_Soldier_TL_F"] call BIS_fnc_loadInventory; _players select 8 select 2 assignTeam "BLUE";};
+		_spawnvehicle = "B_LSV_01_O_Unarmed_F" createVehicle getpos zsn_respawn_west;
 	};
 	_highestRanked = _players select 0 select 2;
 	[format ["%1 is the the squad leader, your callsign is %2", name _highestRanked, _grp]] remoteExec ["hint", _units];
-	_spawnvehicle = "B_LSV_01_O_Unarmed_F" createVehicle getpos zsn_respawn_west;
 	{_x setVehiclePosition [(getpos zsn_respawn_west), [], 4]} forEach _units;
 	if (isClass(configFile >> "CfgPatches" >> "task_force_radio")) then {
 		[player, false] remoteExec ["TFAR_fnc_forceSpectator", _units];
@@ -176,10 +176,10 @@ zsn_spawnwave_resistance = {
 		if (count _units > 6) then {[_players select 6 select 2, missionconfigfile >> "CfgRespawnInventory" >> "ZSN_I_Soldier_A_F"] call BIS_fnc_loadInventory; _players select 6 select 2 assignTeam "BLUE";};
 		if (count _units > 7) then {[_players select 7 select 2, missionconfigfile >> "CfgRespawnInventory" >> "ZSN_I_Soldier_AAT_F"] call BIS_fnc_loadInventory; _players select 7 select 2 assignTeam "YELLOW";};
 		if (count _units > 8) then {[_players select 8 select 2, missionconfigfile >> "CfgRespawnInventory" >> "ZSN_I_Soldier_TL_F"] call BIS_fnc_loadInventory; _players select 8 select 2 assignTeam "BLUE";};
+		_spawnvehicle = "I_G_Offroad_01_F" createVehicle getpos zsn_respawn_guerrila;
 	};
 	_highestRanked = _players select 0 select 2;
 	[format ["%1 is the the squad leader, your callsign is %2", name _highestRanked, _grp]] remoteExec ["hint", _units];
-	_spawnvehicle = "I_G_Offroad_01_F" createVehicle getpos zsn_respawn_guerrila;
 	{_x setVehiclePosition [(getpos zsn_respawn_guerrila), [], 4]} forEach _units;
 	if (isClass(configFile >> "CfgPatches" >> "task_force_radio")) then {
 		[player, false] remoteExec ["TFAR_fnc_forceSpectator", _units];
