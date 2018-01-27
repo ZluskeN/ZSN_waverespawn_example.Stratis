@@ -10,7 +10,7 @@ I no longer support markers since they cannot be moved during gameplay on dedica
 
 Is the line used to call the script, it contains six params;
 
-- Side: the side to use wave respawn, default is West. This is the only mandatory parameter
+- Side: the side to use wave respawn, default is West.
 
 - Wave Size: The number of players to include in each wave, default is 9
 
