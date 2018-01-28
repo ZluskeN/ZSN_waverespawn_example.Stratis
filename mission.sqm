@@ -8,7 +8,7 @@ class EditorData
 	toggles=5;
 	class ItemIDProvider
 	{
-		nextID=436;
+		nextID=438;
 	};
 	class MarkerIDProvider
 	{
@@ -16,10 +16,10 @@ class EditorData
 	};
 	class Camera
 	{
-		pos[]={6478.4766,40.623383,5434.4248};
-		dir[]={-0.82615608,-0.43189913,-0.36206424};
-		up[]={-0.37758541,0.9010337,-0.21350358};
-		aside[]={-0.41843057,0.039669778,0.90744913};
+		pos[]={6484.2705,57.491344,5519.4858};
+		dir[]={-0.72212785,-0.46084237,-0.51606226};
+		up[]={-0.3490414,0.88660717,-0.30350482};
+		aside[]={-0.59739417,0.039034814,0.80107599};
 	};
 };
 binarizationWanted=0;
@@ -30,13 +30,14 @@ addons[]=
 	"A3_Modules_F_Curator_Curator",
 	"A3_Soft_F_Beta_Truck_02",
 	"A3_Structures_F_Mil_Helipads",
-	"A3_Ui_F"
+	"A3_Ui_F",
+	"A3_Data_F_Curator_Virtual"
 };
 class AddonsMetaData
 {
 	class List
 	{
-		items=6;
+		items=7;
 		class Item0
 		{
 			className="A3_Characters_F";
@@ -79,6 +80,13 @@ class AddonsMetaData
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
+		class Item6
+		{
+			className="A3_Data_F_Curator";
+			name="Arma 3 Zeus Update - Main Configuration";
+			author="Bohemia Interactive";
+			url="https://www.arma3.com";
+		};
 	};
 };
 randomSeed=14055257;
@@ -108,7 +116,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=28;
+		items=30;
 		class Item0
 		{
 			dataType="Group";
@@ -1158,7 +1166,6 @@ class Mission
 					flags=7;
 					class Attributes
 					{
-						isPlayer=1;
 					};
 					id=405;
 					type="O_G_Soldier_A_F";
@@ -1598,6 +1605,109 @@ class Mission
 			{
 			};
 			id=434;
+		};
+		class Item28
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={6374.0889,3.0671122,5470.8491};
+			};
+			name="zeus";
+			isPlayer=1;
+			id=436;
+			type="VirtualCurator_F";
+			atlOffset=2.3841858e-007;
+		};
+		class Item29
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={6377.5649,2.583988,5475.145};
+			};
+			id=437;
+			type="ModuleCurator_F";
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="ModuleCurator_F_Owner";
+					expression="_this setVariable ['Owner',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"STRING"
+								};
+							};
+							value="zeus";
+						};
+					};
+				};
+				class Attribute1
+				{
+					property="ModuleCurator_F_Forced";
+					expression="_this setVariable ['Forced',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"SCALAR"
+								};
+							};
+							value=1;
+						};
+					};
+				};
+				class Attribute2
+				{
+					property="ModuleCurator_F_Name";
+					expression="_this setVariable ['Name',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"STRING"
+								};
+							};
+							value="";
+						};
+					};
+				};
+				class Attribute3
+				{
+					property="ModuleCurator_F_Addons";
+					expression="_this setVariable ['Addons',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"SCALAR"
+								};
+							};
+							value=2;
+						};
+					};
+				};
+				nAttributes=4;
+			};
 		};
 	};
 };
