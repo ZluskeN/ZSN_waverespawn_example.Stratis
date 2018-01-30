@@ -127,9 +127,11 @@ zsn_allplayersdead = {
 };
 
 zsn_spawnwave_east = {
-	_units = _this;
-	["", "BLACK OUT"] remoteexec ["titleText", _units];
-	_players = _units apply {[ rankId _x, rating _x, _x ]};
+	params [
+		["_zsn_thislist",""]
+	];
+	["", "BLACK OUT"] remoteexec ["titleText", _zsn_thislist];
+	_players = _zsn_thislist apply {[ rankId _x, rating _x, _x ]};
 	_players = _players - [ -1 ];
 	_players sort false;
 	_grp = createGroup east;
@@ -147,21 +149,23 @@ zsn_spawnwave_east = {
 		_spawnvehicle = "O_LSV_02_Unarmed_F" createVehicle getpos zsn_respawn_east;
 	};
 	_highestRanked = _players select 0 select 2;
-	[format ["%1 is the the squad leader, your callsign is %2", name _highestRanked, _grp]] remoteExec ["hint", _units];
-	{_x setVehiclePosition [(getpos zsn_respawn_east), [], 4]} forEach _units;
+	[format ["%1 is the the squad leader, your callsign is %2", name _highestRanked, _grp]] remoteExec ["hint", _zsn_thislist];
+	{_x setVehiclePosition [(getpos zsn_respawn_east), [], 4]} forEach _zsn_thislist;
 	if (isClass(configFile >> "CfgPatches" >> "task_force_radio")) then {
-		[player, false] remoteExec ["TFAR_fnc_forceSpectator", _units];
+		[player, false] remoteExec ["TFAR_fnc_forceSpectator", _zsn_thislist];
 	};
-	["Terminate"] remoteExec ["BIS_fnc_EGSpectator", _units];
+	["Terminate"] remoteExec ["BIS_fnc_EGSpectator", _zsn_thislist];
 	zsn_wavecount_east = zsn_wavecount_east - 1;
 	publicVariable "zsn_wavecount_east";
-	["", "BLACK IN"] remoteexec ["titleText", _units];
+	["", "BLACK IN"] remoteexec ["titleText", _zsn_thislist];
 };
 
 zsn_spawnwave_west = {
-	_units = _this;
-	["", "BLACK OUT"] remoteexec ["titleText", _units];
-	_players = _units apply {[ rankId _x, rating _x, _x ]};
+	params [
+		["_zsn_thislist",""]
+	];
+	["", "BLACK OUT"] remoteexec ["titleText", _zsn_thislist];
+	_players = _zsn_thislist apply {[ rankId _x, rating _x, _x ]};
 	_players = _players - [ -1 ];
 	_players sort false;
 	_grp = createGroup west;
@@ -179,21 +183,23 @@ zsn_spawnwave_west = {
 		_spawnvehicle = "B_LSV_01_Unarmed_F" createVehicle getpos zsn_respawn_west;
 	};
 	_highestRanked = _players select 0 select 2;
-	[format ["%1 is the the squad leader, your callsign is %2", name _highestRanked, _grp]] remoteExec ["hint", _units];
-	{_x setVehiclePosition [(getpos zsn_respawn_west), [], 4]} forEach _units;
+	[format ["%1 is the the squad leader, your callsign is %2", name _highestRanked, _grp]] remoteExec ["hint", _zsn_thislist];
+	{_x setVehiclePosition [(getpos zsn_respawn_west), [], 4]} forEach _zsn_thislist;
 	if (isClass(configFile >> "CfgPatches" >> "task_force_radio")) then {
-		[player, false] remoteExec ["TFAR_fnc_forceSpectator", _units];
+		[player, false] remoteExec ["TFAR_fnc_forceSpectator", _zsn_thislist];
 	};
-	["Terminate"] remoteExec ["BIS_fnc_EGSpectator", _units];
+	["Terminate"] remoteExec ["BIS_fnc_EGSpectator", _zsn_thislist];
 	zsn_wavecount_west = zsn_wavecount_west - 1;
 	publicVariable "zsn_wavecount_west";
-	["", "BLACK IN"] remoteexec ["titleText",  _units]; 	
+	["", "BLACK IN"] remoteexec ["titleText",  _zsn_thislist]; 	
 };
 
 zsn_spawnwave_resistance = {
-	_units = _this;
-	["", "BLACK OUT"] remoteexec ["titleText", _units];
-	_players = _units apply {[ rankId _x, rating _x, _x ]};
+	params [
+		["_zsn_thislist",""]
+	];
+	["", "BLACK OUT"] remoteexec ["titleText", _zsn_thislist];
+	_players = _zsn_thislist apply {[ rankId _x, rating _x, _x ]};
 	_players = _players - [ -1 ];
 	_players sort false;
 	_grp = createGroup resistance;
@@ -211,13 +217,13 @@ zsn_spawnwave_resistance = {
 		_spawnvehicle = "I_G_Offroad_01_F" createVehicle getpos zsn_respawn_guerrila;
 	};
 	_highestRanked = _players select 0 select 2;
-	[format ["%1 is the the squad leader, your callsign is %2", name _highestRanked, _grp]] remoteExec ["hint", _units];
-	{_x setVehiclePosition [(getpos zsn_respawn_guerrila), [], 4]} forEach _units;
+	[format ["%1 is the the squad leader, your callsign is %2", name _highestRanked, _grp]] remoteExec ["hint", _zsn_thislist];
+	{_x setVehiclePosition [(getpos zsn_respawn_guerrila), [], 4]} forEach _zsn_thislist;
 	if (isClass(configFile >> "CfgPatches" >> "task_force_radio")) then {
-		[player, false] remoteExec ["TFAR_fnc_forceSpectator", _units];
+		[player, false] remoteExec ["TFAR_fnc_forceSpectator", _zsn_thislist];
 	};
-	["Terminate"] remoteExec ["BIS_fnc_EGSpectator", _units];
+	["Terminate"] remoteExec ["BIS_fnc_EGSpectator", _zsn_thislist];
 	zsn_wavecount_resistance = zsn_wavecount_resistance - 1;
 	publicVariable "zsn_wavecount_resistance";
-	["", "BLACK IN"] remoteexec ["titleText", _units];
+	["", "BLACK IN"] remoteexec ["titleText", _zsn_thislist];
 };
