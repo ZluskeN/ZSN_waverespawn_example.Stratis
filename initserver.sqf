@@ -85,10 +85,7 @@ zsn_waverespawn = {
 };
 
 zsn_allplayersdead = {
-	params [
-		["_zsn_side",""],
-		["_zsn_thislist",""]
-	];
+	params ["_zsn_side","_zsn_thislist"];
 	switch (_zsn_side) do {
 		case east: {
 			if ((zsn_wavecount_east ^ 2) >= 1) then {
@@ -127,9 +124,7 @@ zsn_allplayersdead = {
 };
 
 zsn_spawnwave_east = {
-	params [
-		["_zsn_thislist",""]
-	];
+	params ["_zsn_thislist"];
 	["", "BLACK OUT"] remoteexec ["titleText", _zsn_thislist];
 	_players = _zsn_thislist apply {[ rankId _x, rating _x, _x ]};
 	_players = _players - [ -1 ];
@@ -161,9 +156,7 @@ zsn_spawnwave_east = {
 };
 
 zsn_spawnwave_west = {
-	params [
-		["_zsn_thislist",""]
-	];
+	params ["_zsn_thislist"];
 	["", "BLACK OUT"] remoteexec ["titleText", _zsn_thislist];
 	_players = _zsn_thislist apply {[ rankId _x, rating _x, _x ]};
 	_players = _players - [ -1 ];
@@ -195,9 +188,7 @@ zsn_spawnwave_west = {
 };
 
 zsn_spawnwave_resistance = {
-	params [
-		["_zsn_thislist",""]
-	];
+	params ["_zsn_thislist"];
 	["", "BLACK OUT"] remoteexec ["titleText", _zsn_thislist];
 	_players = _zsn_thislist apply {[ rankId _x, rating _x, _x ]};
 	_players = _players - [ -1 ];
