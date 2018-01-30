@@ -30,7 +30,7 @@ zsn_waverespawn = {
 			if (!isNil ("zsn_efail_trg")) then {deleteVehicle zsn_efail_trg;};
 			zsn_efail_trg = createTrigger ["EmptyDetector", getmarkerPos "respawn_east"];
 			zsn_efail_trg setTriggerActivation ["civ", "PRESENT", true];
-            		zsn_efail_trg setTriggerStatements ["isServer && {alive _x && Side _x == east} count (allPlayers - entities 'HeadlessClient_F') < 1 && {Side _x == civilian} count thislist >= 1", "[east, thisList] call zsn_allplayersdead;",""];
+            		zsn_efail_trg setTriggerStatements ["isServer && {alive _x && Side _x == east} count (allPlayers - entities 'HeadlessClient_F') < 1 && {Side _x == civilian} count thislist >= 1", "[_zsn_respawnside, thisList] call zsn_allplayersdead;",""];
 		};
 		case west: {
 			zsn_loadout_west = _zsn_loadout;
@@ -48,7 +48,7 @@ zsn_waverespawn = {
 			if (!isNil ("zsn_wfail_trg")) then {deleteVehicle zsn_wfail_trg;};
 			zsn_wfail_trg = createTrigger ["EmptyDetector", getmarkerPos "respawn_west"];
 			zsn_wfail_trg setTriggerActivation ["civ", "PRESENT", true];
-            		zsn_wfail_trg setTriggerStatements ["isServer && {alive _x && Side _x == west} count (allPlayers - entities 'HeadlessClient_F') < 1 && {Side _x == civilian} count thislist >= 1", "[west, thisList] call zsn_allplayersdead;",""];
+            		zsn_wfail_trg setTriggerStatements ["isServer && {alive _x && Side _x == west} count (allPlayers - entities 'HeadlessClient_F') < 1 && {Side _x == civilian} count thislist >= 1", "[_zsn_respawnside, thisList] call zsn_allplayersdead;",""];
 		};
 		case resistance: {
 			zsn_loadout_resistance = _zsn_loadout;
@@ -66,7 +66,7 @@ zsn_waverespawn = {
 			if (!isNil ("zsn_gfail_trg")) then {deleteVehicle zsn_gfail_trg;};
 			zsn_gfail_trg = createTrigger ["EmptyDetector", getmarkerPos "respawn_guerrila"];
 			zsn_gfail_trg setTriggerActivation ["civ", "PRESENT", true];
-            		zsn_gfail_trg setTriggerStatements ["isServer && {alive _x && Side _x == resistance} count (allPlayers - entities 'HeadlessClient_F') < 1 && {Side _x == civilian} count thislist >= 1", "[resistance, thisList] call zsn_allplayersdead;",""];
+            		zsn_gfail_trg setTriggerStatements ["isServer && {alive _x && Side _x == resistance} count (allPlayers - entities 'HeadlessClient_F') < 1 && {Side _x == civilian} count thislist >= 1", "[_zsn_respawnside, thisList] call zsn_allplayersdead;",""];
 		};
 	};
 	addMissionEventHandler ["entityKilled", {
