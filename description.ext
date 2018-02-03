@@ -5,28 +5,28 @@ enableDebugConsole = 2;
 respawnOnStart = -1;
 class Params
 {
-	class WSize
+	class ZSN_WSize
 	{
 		title = "Wave Size (West)"; // Param name visible in the list
 		values[] = {1,2,3,4,5,6,7,8,9}; // Values; must be integers; has to have the same number of elements as 'texts'
 		texts[] = {"1","2","3","4","5","6","7","8","9"}; // Description of each selectable item
 		default = 5; // Default value; must be listed in 'values' array, otherwise 0 is used
 	};
-	class WCount
+	class ZSN_WCount
 	{
 		title = "Number of Waves (West)"; // Param name visible in the list
 		values[] = {1,2,3,4,5,6,7,8,-1}; // Values; must be integers; has to have the same number of elements as 'texts'
 		texts[] = {"1","2","3","4","5","6","7","8","Infinite"}; // Description of each selectable item
 		default = 6; // Default value; must be listed in 'values' array, otherwise 0 is used
 	};
-	class ESize
+	class ZSN_ESize
 	{
 		title = "Wave Size (East)"; // Param name visible in the list
 		values[] = {1,2,3,4,5,6,7,8,9}; // Values; must be integers; has to have the same number of elements as 'texts'
 		texts[] = {"1","2","3","4","5","6","7","8","9"}; // Description of each selectable item
 		default = 6; // Default value; must be listed in 'values' array, otherwise 0 is used
 	};
-	class ECount
+	class ZSN_ECount
 	{
 		title = "Number of Waves (East)"; // Param name visible in the list
 		values[] = {1,2,3,4,5,6,7,8,-1}; // Values; must be integers; has to have the same number of elements as 'texts'

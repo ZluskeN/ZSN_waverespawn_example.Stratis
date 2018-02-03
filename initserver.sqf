@@ -131,6 +131,7 @@ zsn_allplayersdead = {
 
 zsn_spawnwave_east = {
 	_units = _this;
+	private "_units";
 	["", "BLACK OUT"] remoteexec ["titleText", _units];
 	_players = _units apply {[ rankId _x, rating _x, _x ]};
 	_players = _players - [ -1 ];
@@ -163,6 +164,7 @@ zsn_spawnwave_east = {
 
 zsn_spawnwave_west = {
 	_units = _this;
+	private "_units";
 	["", "BLACK OUT"] remoteexec ["titleText", _units];
 	_players = _units apply {[ rankId _x, rating _x, _x ]};
 	_players = _players - [ -1 ];
@@ -195,6 +197,7 @@ zsn_spawnwave_west = {
 
 zsn_spawnwave_resistance = {
 	_units = _this;
+	private "_units";
 	["", "BLACK OUT"] remoteexec ["titleText", _units];
 	_players = _units apply {[ rankId _x, rating _x, _x ]};
 	_players = _players - [ -1 ];
