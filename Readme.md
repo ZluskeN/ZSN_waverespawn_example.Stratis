@@ -33,4 +33,4 @@ To set custom respawn gear you can either define the loadouts in description.ext
 
 If all players are dead and there are spawn waves left, the script will now spawn in the new wave anyway
 
-You can initiate the a new wave spawn yourself, maybe upon objective completion or other criteria. To do this, create a trigger and place it over the respawn marker. Make sure it is a CIVILIAN Present trigger. Set your custom trigger condition and in On Activation put thisList call zsn_spawnwave_resistance; (or east or west).
+You can initiate the a new wave spawn yourself, maybe upon objective completion or other criteria. To do this, create a trigger and place it over the respawn marker. Make sure it is a CIVILIAN Present trigger. Set your custom trigger condition and in On Activation put thisList call zsn_spawnwave_resistance; (or east or west). If you want it to fire multiple times make sure it is repeatable.
