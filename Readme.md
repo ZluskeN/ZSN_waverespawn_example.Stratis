@@ -28,3 +28,5 @@ To initialize the script for multiple sides, just execute the command line multi
 If all players are dead and there are spawn waves left, the script will spawn in the new wave automatically. The overflow is saved and when the side runs out of waves a last wave will be spawned with the overflow.
 
 You can initiate the a new wave spawn yourself, maybe upon objective completion or other criteria. To do this, fill in the custom param at the bottom of initserver.sqf
+
+Lastly, if you for some reason don't want players without squad logos to spawn with safety vests, you can remove the bottom line in initserver.sqf
