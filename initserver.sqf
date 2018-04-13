@@ -29,11 +29,11 @@ zsn_gloadouts = [
 	"I_Soldier_SL_F",
 	"I_Soldier_TL_F",
 	"I_Soldier_LAT_F",
-	"I_Soldier_AR_F",
 	"I_Soldier_M_F",
-	"I_Soldier_AT_F",
+	"I_Soldier_AR_F",
+	"I_Soldier_LAT2_F",
+	"I_Soldier_AAR_F",
 	"I_Soldier_A_F",
-	"I_Soldier_AAT_F",
 	"I_Soldier_TL_F"
 ];
 
