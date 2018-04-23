@@ -38,4 +38,4 @@ zsn_ofg = zsn_ofg + (zsn_wsg - (count _zsn_units));
 publicVariable "zsn_ofg";
 if (zsn_wcg != 0) then {zsn_wcg = zsn_wcg - 1;};
 publicVariable "zsn_wcg";
-if (zsn_wcg == 0 && zsn_ofg > 0) then {	[resistance, 1, zsn_ofg, zsn_log, zsn_pvp, zsn_rsg] call zsn_fnc_waverespawn;};
+if (zsn_wcg == 0 && zsn_ofg > 0) then {	[resistance, 1, zsn_ofg, zsn_log, zsn_rsg] call zsn_fnc_waverespawn;};

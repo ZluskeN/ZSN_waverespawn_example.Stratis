@@ -38,4 +38,4 @@ zsn_ofe = zsn_ofe + (zsn_wse - (count _zsn_units));
 publicVariable "zsn_ofe";
 if (zsn_wce != 0) then {zsn_wce = zsn_wce - 1;};
 publicVariable "zsn_wce";
-if (zsn_wce == 0 && zsn_ofe > 0) then {[east, 1, zsn_ofe, zsn_loe, zsn_pvp, zsn_rse] remoteexec ["zsn_fnc_waverespawn",2];};
+if (zsn_wce == 0 && zsn_ofe > 0) then {[east, 1, zsn_ofe, zsn_loe, zsn_rse] remoteexec ["zsn_fnc_waverespawn",2];};
