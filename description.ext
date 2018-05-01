@@ -3,6 +3,7 @@ respawnDelay = 2;
 respawnButton = 0;
 enableDebugConsole = 1;
 respawnOnStart = -1;
+corpseLimit = 100;
 class Params
 {
 	class ZSN_WSize

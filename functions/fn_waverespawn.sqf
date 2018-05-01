@@ -6,9 +6,9 @@ params [
 	["_zsn_rs", _this select 0, [east]]		//Side to execute wave respawn for 		(SIDE, Default same as _zsn_side)
 ];
 zsn_pvp = false;
-zsn_wre = false; publicVariable "zsn_wre";
-zsn_wrw = false; publicVariable "zsn_wrw";
-zsn_wrg = false; publicVariable "zsn_wrg";
+if (isNil "zsn_wre") then {zsn_wre = false; publicVariable "zsn_wre";};
+if (isNil "zsn_wrw") then {zsn_wrw = false; publicVariable "zsn_wrw";};
+if (isNil "zsn_wrg") then {zsn_wrg = false; publicVariable "zsn_wrg";};
 zsn_rd = (getMissionConfigValue ["respawnDelay",2]) + 1;
 switch (_zsn_side) do {
 	case east: {
@@ -59,7 +59,7 @@ switch (_zsn_side) do {
 		zsn_wrg = true; publicVariable "zsn_wrg";
 		if ((zsn_wrw && [west, resistance] call BIS_fnc_sideIsEnemy) || (zsn_wre && [east, resistance] call BIS_fnc_sideIsEnemy)) then {zsn_pvp = true;};
 		publicVariable "zsn_pvp";
-		if (!isNil ("respawn_guerrila")) then {respawn_guerrila = createMarker ["respawn_guerrila", [0,0]];};
+		if (isNil ("respawn_guerrila")) then {respawn_guerrila = createMarker ["respawn_guerrila", [0,0]];};
 		zsn_ofg = 0; publicVariable "zsn_ofg";
 		zsn_log = _zsn_lo; publicVariable "zsn_log";
 		zsn_wcg = _zsn_wc; publicVariable "zsn_wcg";

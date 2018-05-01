@@ -33,7 +33,7 @@ if (zsn_log) then {
 if (isClass(configFile >> "CfgPatches" >> "task_force_radio")) then {[player, false] remoteExec ["TFAR_fnc_forceSpectator", _zsn_units];};
 ["Terminate"] remoteExec ["BIS_fnc_EGSpectator", _zsn_units];
 ["", "BLACK IN"] remoteexec ["titleText", _zsn_units];
-[format ["%1 is the the squad leader, your callsign is %2", name _hr, _grp]] remoteExec ["hint", _zsn_units];
+[format ["New squad spawned, callsign %2. %1 is the the squad leader", name _hr, _grp]] remoteExec ["hint", _zsn_units];
 zsn_ofg = zsn_ofg + (zsn_wsg - (count _zsn_units));
 publicVariable "zsn_ofg";
 if (zsn_wcg != 0) then {zsn_wcg = zsn_wcg - 1;};
