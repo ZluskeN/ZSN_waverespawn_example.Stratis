@@ -20,7 +20,11 @@ player addEventHandler ["Respawn", {
 	[player, [missionNamespace, "inventory_var"]] call BIS_fnc_loadInventory;
 	if ((player inArea zsn_eplayer_trg) OR (player inArea zsn_wplayer_trg)  OR (player inArea zsn_gplayer_trg)) then {
 		["Initialize",[player, [playerside], false, false, true, true, true, true, true, true]] call BIS_fnc_EGSpectator;
-		if (isClass(configFile >> "CfgPatches" >> "task_force_radio")) then {[player, true] call TFAR_fnc_forceSpectator;};
+		if (isClass(configFile >> "CfgPatches" >> "task_force_radio")) then {
+			[player, true] call TFAR_fnc_forceSpectator;
+			[call TFAR_fnc_activeSWRadio,false] call TFAR_fnc_radioOn;
+			[call TFAR_fnc_activeLRRadio,false] call TFAR_fnc_radioOn;
+		};
 		[] spawn {
 			switch (playerSide) do {
 				case east: {

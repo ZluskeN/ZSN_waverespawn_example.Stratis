@@ -33,9 +33,4 @@ if (zsn_loe) then {
 if (isClass(configFile >> "CfgPatches" >> "task_force_radio")) then {[player, false] remoteExec ["TFAR_fnc_forceSpectator", _zsn_units];};
 ["Terminate"] remoteExec ["BIS_fnc_EGSpectator", _zsn_units];
 ["", "BLACK IN"] remoteexec ["titleText", _zsn_units];
-[format ["New squad spawned, callsign %2. %1 is the the squad leader", name _hr, _grp]] remoteExec ["hint", _zsn_units];
-zsn_ofe = zsn_ofe + (zsn_wse - (count _zsn_units));
-publicVariable "zsn_ofe";
-if (zsn_wce != 0) then {zsn_wce = zsn_wce - 1;};
-publicVariable "zsn_wce";
-if (zsn_wce == 0 && zsn_ofe > 0) then {[east, 1, zsn_ofe, zsn_loe, zsn_rse] remoteexec ["zsn_fnc_waverespawn",2];};
+[format ["New squad spawned, callsign %2. %1 is the the squad leader", name _hr, _grp]] remoteExec ["hint", east];

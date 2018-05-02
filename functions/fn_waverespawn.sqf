@@ -24,9 +24,21 @@ switch (_zsn_side) do {
 		if (!isNil ("zsn_est")) then {deleteVehicle zsn_est;};
 		zsn_est = createTrigger ["EmptyDetector", getmarkerPos "respawn_east"];
 		zsn_est setTriggerActivation ["civ", "PRESENT", true];
-		if (zsn_rse == west) then {zsn_est setTriggerStatements ["isServer && (zsn_wce ^ 2) >= 1 && {Side _x == civilian} count thislist >= zsn_wse", "thisList spawn zsn_fnc_spawnwave_west;",""];};
-		if (zsn_rse == east) then {zsn_est setTriggerStatements ["isServer && (zsn_wce ^ 2) >= 1 && {Side _x == civilian} count thislist >= zsn_wse", "thisList spawn zsn_fnc_spawnwave_east;",""];};
-		if (zsn_rse == resistance) then {zsn_est setTriggerStatements ["isServer && (zsn_wce ^ 2) >= 1 && {Side _x == civilian} count thislist >= zsn_wse", "thisList spawn zsn_fnc_spawnwave_resistance;",""];};
+		if (zsn_rse == east) then {zsn_est setTriggerStatements ["isServer && (zsn_wce ^ 2) >= 1 && {Side _x == civilian} count thislist >= zsn_wse", "thisList spawn zsn_fnc_spawnwave_east; 
+		if (zsn_wce != 0) then {zsn_wce = zsn_wce - 1;}; publicVariable 'zsn_wce'; 
+		if (zsn_wce == 0 && zsn_ofe > 0) then {
+			[east, zsn_ofe, 1, zsn_loe, zsn_rse] remoteexec ['zsn_fnc_waverespawn',2];
+		};",""];};
+		if (zsn_rse == west) then {zsn_est setTriggerStatements ["isServer && (zsn_wce ^ 2) >= 1 && {Side _x == civilian} count thislist >= zsn_wse", "thisList spawn zsn_fnc_spawnwave_west;
+		if (zsn_wce != 0) then {zsn_wce = zsn_wce - 1;}; publicVariable 'zsn_wce'; 
+		if (zsn_wce == 0 && zsn_ofe > 0) then {
+			[east, zsn_ofe, 1, zsn_loe, zsn_rse] remoteexec ['zsn_fnc_waverespawn',2];
+		};",""];};
+		if (zsn_rse == resistance) then {zsn_est setTriggerStatements ["isServer && (zsn_wce ^ 2) >= 1 && {Side _x == civilian} count thislist >= zsn_wse", "thisList spawn zsn_fnc_spawnwave_resistance;
+		if (zsn_wce != 0) then {zsn_wce = zsn_wce - 1;}; publicVariable 'zsn_wce'; 
+		if (zsn_wce == 0 && zsn_ofe > 0) then {
+			[east, zsn_ofe, 1, zsn_loe, zsn_rse] remoteexec ['zsn_fnc_waverespawn',2];
+		};",""];};
 		if (!isNil ("zsn_eft")) then {deleteVehicle zsn_eft;};
 		zsn_eft = createTrigger ["EmptyDetector", getmarkerPos "respawn_east"];
 		zsn_eft setTriggerTimeout [zsn_rd, zsn_rd, zsn_rd, true];
@@ -46,9 +58,24 @@ switch (_zsn_side) do {
 		if (!isNil ("zsn_wst")) then {deleteVehicle zsn_wst;};
 		zsn_wst = createTrigger ["EmptyDetector", getmarkerPos "respawn_west"];
 		zsn_wst setTriggerActivation ["civ", "PRESENT", true];
-		if (zsn_rsw == west) then {zsn_wst setTriggerStatements ["isServer && (zsn_wcw ^ 2) >= 1 && {Side _x == civilian} count thislist >= zsn_wsw", "thisList spawn zsn_fnc_spawnwave_west;",""];};
-		if (zsn_rsw == east) then {zsn_wst setTriggerStatements ["isServer && (zsn_wcw ^ 2) >= 1 && {Side _x == civilian} count thislist >= zsn_wsw", "thisList spawn zsn_fnc_spawnwave_east;",""];};
-		if (zsn_rsw == resistance) then {zsn_wst setTriggerStatements ["isServer && (zsn_wcw ^ 2) >= 1 && {Side _x == civilian} count thislist >= zsn_wsw", "thisList spawn zsn_fnc_spawnwave_resistance;",""];};
+		if (zsn_rsw == east) then {zsn_wst setTriggerStatements ["isServer && (zsn_wcw ^ 2) >= 1 && {Side _x == civilian} count thislist >= zsn_wsw", "thisList spawn zsn_fnc_spawnwave_east;
+		if (zsn_wcw != 0) then {zsn_wcw = zsn_wcw - 1;}; publicVariable 'zsn_wcw'; 
+		if (zsn_wcw == 0 && zsn_ofw > 0) then {
+			[west, zsn_ofw, 1, zsn_low, zsn_rsw] remoteexec ['zsn_fnc_waverespawn',2];
+		};
+		",""];};
+		if (zsn_rsw == west) then {zsn_wst setTriggerStatements ["isServer && (zsn_wcw ^ 2) >= 1 && {Side _x == civilian} count thislist >= zsn_wsw", "thisList spawn zsn_fnc_spawnwave_west;
+		if (zsn_wcw != 0) then {zsn_wcw = zsn_wcw - 1;}; publicVariable 'zsn_wcw'; 
+		if (zsn_wcw == 0 && zsn_ofw > 0) then {
+			[west, zsn_ofw, 1, zsn_low, zsn_rsw] remoteexec ['zsn_fnc_waverespawn',2];
+		};
+		",""];};
+		if (zsn_rsw == resistance) then {zsn_wst setTriggerStatements ["isServer && (zsn_wcw ^ 2) >= 1 && {Side _x == civilian} count thislist >= zsn_wsw", "thisList spawn zsn_fnc_spawnwave_resistance;
+		if (zsn_wcw != 0) then {zsn_wcw = zsn_wcw - 1;}; publicVariable 'zsn_wcw'; 
+		if (zsn_wcw == 0 && zsn_ofw > 0) then {
+			[west, zsn_ofw, 1, zsn_low, zsn_rsw] remoteexec ['zsn_fnc_waverespawn',2];
+		};
+		",""];};
 		if (!isNil ("zsn_wft")) then {deleteVehicle zsn_wft;};
 		zsn_wft = createTrigger ["EmptyDetector", getmarkerPos "respawn_west"];
 		zsn_wft setTriggerTimeout [zsn_rd, zsn_rd, zsn_rd, true];
@@ -68,9 +95,24 @@ switch (_zsn_side) do {
 		if (!isNil ("zsn_gst")) then {deleteVehicle zsn_gst;};
 		zsn_gst = createTrigger ["EmptyDetector", getmarkerPos "respawn_guerrila"];
 		zsn_gst setTriggerActivation ["civ", "PRESENT", true];
-		if (zsn_rsg == west) then {zsn_gst setTriggerStatements ["isServer && (zsn_wcg ^ 2) >= 1 && {Side _x == civilian} count thislist >= zsn_wsg", "thisList spawn zsn_fnc_spawnwave_west;",""];};
-		if (zsn_rsg == east) then {zsn_gst setTriggerStatements ["isServer && (zsn_wcg ^ 2) >= 1 && {Side _x == civilian} count thislist >= zsn_wsg", "thisList spawn zsn_fnc_spawnwave_east;",""];};
-		if (zsn_rsg == resistance) then {zsn_gst setTriggerStatements ["isServer && (zsn_wcg ^ 2) >= 1 && {Side _x == civilian} count thislist >= zsn_wsg", "thisList spawn zsn_fnc_spawnwave_resistance;",""];};
+		if (zsn_rsg == east) then {zsn_gst setTriggerStatements ["isServer && (zsn_wcg ^ 2) >= 1 && {Side _x == civilian} count thislist >= zsn_wsg", "thisList spawn zsn_fnc_spawnwave_east;
+		if (zsn_wcg != 0) then {zsn_wcg = zsn_wcg - 1;}; publicVariable 'zsn_wcg'; 
+		if (zsn_wcg == 0 && zsn_ofg > 0) then {
+			[resistance, zsn_ofg, 1, zsn_log, zsn_rsg] remoteexec ['zsn_fnc_waverespawn',2];
+		};
+		",""];};
+		if (zsn_rsg == west) then {zsn_gst setTriggerStatements ["isServer && (zsn_wcg ^ 2) >= 1 && {Side _x == civilian} count thislist >= zsn_wsg", "thisList spawn zsn_fnc_spawnwave_west;
+		if (zsn_wcg != 0) then {zsn_wcg = zsn_wcg - 1;}; publicVariable 'zsn_wcg'; 
+		if (zsn_wcg == 0 && zsn_ofg > 0) then {
+			[resistance, zsn_ofg, 1, zsn_log, zsn_rsg] remoteexec ['zsn_fnc_waverespawn',2];
+		};
+		",""];};
+		if (zsn_rsg == resistance) then {zsn_gst setTriggerStatements ["isServer && (zsn_wcg ^ 2) >= 1 && {Side _x == civilian} count thislist >= zsn_wsg", "thisList spawn zsn_fnc_spawnwave_resistance;
+		if (zsn_wcg != 0) then {zsn_wcg = zsn_wcg - 1;}; publicVariable 'zsn_wcg'; 
+		if (zsn_wcg == 0 && zsn_ofg > 0) then {
+			[resistance, zsn_ofg, 1, zsn_log, zsn_rsg] remoteexec ['zsn_fnc_waverespawn',2];
+		};
+		",""];};
 		if (!isNil ("zsn_gft")) then {deleteVehicle zsn_gft;};
 		zsn_gft = createTrigger ["EmptyDetector", getmarkerPos "respawn_guerrila"];
 		zsn_gft setTriggerTimeout [zsn_rd, zsn_rd, zsn_rd, true];
