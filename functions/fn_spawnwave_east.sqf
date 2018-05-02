@@ -30,7 +30,11 @@ if (zsn_loe) then {
 };
 [_this] remoteexec ["zsn_fnc_clearweapon", _zsn_units];
 {_x setVehiclePosition [(getpos zsn_respawn_east), [], 8];} forEach _zsn_units;
-if (isClass(configFile >> "CfgPatches" >> "task_force_radio")) then {[player, false] remoteExec ["TFAR_fnc_forceSpectator", _zsn_units];};
+if (isClass(configFile >> "CfgPatches" >> "task_force_radio")) then {
+	[player, false] remoteExec ["TFAR_fnc_forceSpectator", _zsn_units];
+	[call TFAR_fnc_activeSWRadio,true] remoteExec ["TFAR_fnc_radioOn", _zsn_units];
+	[call TFAR_fnc_activeLRRadio,true] remoteExec ["TFAR_fnc_radioOn", _zsn_units];
+};
 ["Terminate"] remoteExec ["BIS_fnc_EGSpectator", _zsn_units];
 ["", "BLACK IN"] remoteexec ["titleText", _zsn_units];
 [format ["New squad spawned, callsign %2. %1 is the the squad leader", name _hr, _grp]] remoteExec ["hint", east];
