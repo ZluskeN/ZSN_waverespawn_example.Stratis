@@ -32,8 +32,8 @@ if (zsn_log) then {
 {_x setVehiclePosition [(getpos zsn_respawn_guerrila), [], 8];} forEach _zsn_units;
 if (isClass(configFile >> "CfgPatches" >> "task_force_radio")) then {
 	[player, false] remoteExec ["TFAR_fnc_forceSpectator", _zsn_units];
-	[call TFAR_fnc_activeSWRadio,true] remoteExec ["TFAR_fnc_radioOn", _zsn_units];
-	[call TFAR_fnc_activeLRRadio,true] remoteExec ["TFAR_fnc_radioOn", _zsn_units];
+	[{if (call TFAR_fnc_haveLRRadio) then {[call TFAR_fnc_activeLRRadio,true] call TFAR_fnc_radioOn}}] remoteExecCall ["bis_fnc_call", _zsn_units];
+	[{if (call TFAR_fnc_haveSWRadio) then {[call TFAR_fnc_activeSWRadio,true] call TFAR_fnc_radioOn}}] remoteExecCall ["bis_fnc_call", _zsn_units];
 };
 ["Terminate"] remoteExec ["BIS_fnc_EGSpectator", _zsn_units];
 ["", "BLACK IN"] remoteexec ["titleText", _zsn_units];
