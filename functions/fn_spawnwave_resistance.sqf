@@ -17,7 +17,7 @@ if (count _zsn_units > 5) then {_zsn_ranked select 5 select 2 setUnitRank "PRIVA
 if (count _zsn_units > 6) then {_zsn_ranked select 6 select 2 setUnitRank "PRIVATE"; [_zsn_ranked select 6 select 2, "BLUE"] remoteexec ["assignteam"];};
 if (count _zsn_units > 7) then {_zsn_ranked select 7 select 2 setUnitRank "PRIVATE"; [_zsn_ranked select 7 select 2, "YELLOW"] remoteexec ["assignteam"];};
 if (count _zsn_units > 8) then {_zsn_ranked select 8 select 2 setUnitRank "CORPORAL"; [_zsn_ranked select 8 select 2, "BLUE"] remoteexec ["assignteam"];};
-if (count _zsn_units > 9) then {_zsn_ranked select 9 select 2 setUnitRank "PRIVATE"; [_zsn_ranked select 9 select 2, "RED"] remoteexec ["assignteam"];};
+if (count _zsn_units > 9) then {_zsn_ranked select 9 select 2 setUnitTrait ["Medic",true]; [_zsn_ranked select 9 select 2, "RED"] remoteexec ["assignteam"];};
 if (zsn_log) then {
 	[_hr, zsn_gloadouts select 0] call ZSN_fnc_loadInventory;
 	if (count _zsn_units > 1) then {[_zsn_ranked select 1 select 2, zsn_gloadouts select 1] call zsn_fnc_loadInventory;};
