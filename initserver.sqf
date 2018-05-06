@@ -13,7 +13,8 @@ zsn_eloadouts = [
 	"ZSN_O_Soldier4",
 	"ZSN_O_Soldier5",
 	"ZSN_O_Soldier6",
-	"ZSN_O_Teamleader"
+	"ZSN_O_Teamleader",
+	"ZSN_O_Medic"
 ];
 zsn_wloadouts = [
 	"ZSN_B_Squadleader",
@@ -24,7 +25,8 @@ zsn_wloadouts = [
 	"ZSN_B_Soldier4",
 	"ZSN_B_Soldier5",
 	"ZSN_B_Soldier6",
-	"ZSN_B_Teamleader"
+	"ZSN_B_Teamleader",
+	"ZSN_B_Medic"
 ];
 zsn_gloadouts = [
 	"I_Soldier_SL_F",
@@ -35,7 +37,8 @@ zsn_gloadouts = [
 	"I_Soldier_LAT2_F",
 	"I_Soldier_AAR_F",
 	"I_Soldier_A_F",
-	"I_Soldier_TL_F"
+	"I_Soldier_TL_F",
+	"I_medic_F"
 ];
 
 // This is for when you want to spawn in the wave upon some custom mission condition rather than player count
