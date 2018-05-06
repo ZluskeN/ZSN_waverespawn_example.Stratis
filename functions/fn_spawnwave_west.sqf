@@ -17,6 +17,7 @@ if (count _zsn_units > 5) then {_zsn_ranked select 5 select 2 setUnitRank "PRIVA
 if (count _zsn_units > 6) then {_zsn_ranked select 6 select 2 setUnitRank "PRIVATE"; [_zsn_ranked select 6 select 2, "BLUE"] remoteexec ["assignteam"];};
 if (count _zsn_units > 7) then {_zsn_ranked select 7 select 2 setUnitRank "PRIVATE"; [_zsn_ranked select 7 select 2, "YELLOW"] remoteexec ["assignteam"];};
 if (count _zsn_units > 8) then {_zsn_ranked select 8 select 2 setUnitRank "CORPORAL"; [_zsn_ranked select 8 select 2, "BLUE"] remoteexec ["assignteam"];};
+if (count _zsn_units > 9) then {_zsn_ranked select 9 select 2 setUnitRank "PRIVATE"; [_zsn_ranked select 9 select 2, "RED"] remoteexec ["assignteam"];};
 if (zsn_low) then {
 	[_hr, zsn_wloadouts select 0] call zsn_fnc_loadInventory;
 	if (count _zsn_units > 1) then {[_zsn_ranked select 1 select 2, zsn_wloadouts select 1] call zsn_fnc_loadInventory;};
@@ -27,6 +28,7 @@ if (zsn_low) then {
 	if (count _zsn_units > 6) then {[_zsn_ranked select 6 select 2, zsn_wloadouts select 6] call zsn_fnc_loadInventory;};
 	if (count _zsn_units > 7) then {[_zsn_ranked select 7 select 2, zsn_wloadouts select 7] call zsn_fnc_loadInventory;};
 	if (count _zsn_units > 8) then {[_zsn_ranked select 8 select 2, zsn_wloadouts select 8] call zsn_fnc_loadInventory;};
+	if (count _zsn_units > 9) then {[_zsn_ranked select 9 select 2, zsn_wloadouts select 9] call zsn_fnc_loadInventory;};
 };
 remoteexec ["zsn_fnc_clearweapon", _zsn_units];
 {_x setVehiclePosition [(getpos zsn_respawn_west), [], 8];} forEach _zsn_units;
