@@ -5,40 +5,40 @@
 
 // If the fourth param is "true" you can define custom loadouts for the new wave below. Either from description.ext or config
 zsn_eloadouts = [
-	"ZSN_O_Squadleader",
-	"ZSN_O_Teamleader",
-	"ZSN_O_Soldier1",
-	"ZSN_O_Soldier2",
-	"ZSN_O_Soldier3",
-	"ZSN_O_Soldier4",
-	"ZSN_O_Soldier5",
-	"ZSN_O_Soldier6",
-	"ZSN_O_Teamleader",
-	"ZSN_O_Medic"
+	"ZSN_O_Squadleader",	//Custom loadout for squad leader, will be given sergeant rank
+	"ZSN_O_Teamleader",	//Custom loadout tor team leader, will be given corporal rank and assigned fire team 1
+	"ZSN_O_Soldier1",	//Custom loadout for soldier, will be given private rank and assigned fire team 2
+	"ZSN_O_Soldier2",	//Custom loadout for soldier, will be given private rank and assigned fire team 1
+	"ZSN_O_Soldier3",	//Custom loadout for soldier, will be given private rank and assigned fire team 2
+	"ZSN_O_Soldier4",	//Custom loadout for soldier, will be given private rank and assigned fire team 1
+	"ZSN_O_Soldier5",	//Custom loadout for soldier, will be given private rank and assigned fire team 2
+	"ZSN_O_Soldier6",	//Custom loadout for soldier, will be given private rank and assigned fire team 1
+	"ZSN_O_Teamleader",	//Custom loadout for team leader 2, will be given corporal rank and assigned fire team 2
+	"ZSN_O_Medic"		//Custom loadout for squad medic, will be assigned team red and made "attendant"
 ];
 zsn_wloadouts = [
-	"ZSN_B_Squadleader",
-	"ZSN_B_Teamleader",
-	"ZSN_B_Soldier1",
-	"ZSN_B_Soldier2",
-	"ZSN_B_Soldier3",
-	"ZSN_B_Soldier4",
-	"ZSN_B_Soldier5",
-	"ZSN_B_Soldier6",
-	"ZSN_B_Teamleader",
-	"ZSN_B_Medic"
+	"ZSN_B_Squadleader",	//Custom loadout for squad leader, will be given sergeant rank
+	"ZSN_B_Teamleader",	//Custom loadout tor team leader, will be given corporal rank and assigned fire team 1
+	"ZSN_B_Soldier1",	//Custom loadout for soldier, will be given private rank and assigned fire team 2
+	"ZSN_B_Soldier2",	//Custom loadout for soldier, will be given private rank and assigned fire team 1
+	"ZSN_B_Soldier3",	//Custom loadout for soldier, will be given private rank and assigned fire team 2
+	"ZSN_B_Soldier4",	//Custom loadout for soldier, will be given private rank and assigned fire team 1
+	"ZSN_B_Soldier5",	//Custom loadout for soldier, will be given private rank and assigned fire team 2
+	"ZSN_B_Soldier6",	//Custom loadout for soldier, will be given private rank and assigned fire team 1
+	"ZSN_B_Teamleader",	//Custom loadout for team leader 2, will be given corporal rank and assigned fire team 2
+	"ZSN_B_Medic"		//Custom loadout for squad medic, will be assigned team red and made "attendant"
 ];
 zsn_gloadouts = [
-	"I_Soldier_SL_F",
-	"I_Soldier_TL_F",
-	"I_Soldier_LAT_F",
-	"I_Soldier_M_F",
-	"I_Soldier_AR_F",
-	"I_Soldier_LAT2_F",
-	"I_Soldier_AAR_F",
-	"I_Soldier_A_F",
-	"I_Soldier_TL_F",
-	"I_medic_F"
+	"I_Soldier_SL_F",	//Custom loadout for squad leader, will be given sergeant rank
+	"I_Soldier_TL_F",	//Custom loadout tor team leader, will be given corporal rank and assigned fire team 1
+	"I_Soldier_LAT_F",	//Custom loadout for soldier, will be given private rank and assigned fire team 2
+	"I_Soldier_M_F",	//Custom loadout for soldier, will be given private rank and assigned fire team 1
+	"I_Soldier_AR_F",	//Custom loadout for soldier, will be given private rank and assigned fire team 2
+	"I_Soldier_LAT2_F",	//Custom loadout for soldier, will be given private rank and assigned fire team 1
+	"I_Soldier_AAR_F",	//Custom loadout for soldier, will be given private rank and assigned fire team 2
+	"I_Soldier_A_F",	//Custom loadout for soldier, will be given private rank and assigned fire team 1
+	"I_Soldier_TL_F",	//Custom loadout for team leader 2, will be given corporal rank and assigned fire team 2
+	"I_medic_F"		//Custom loadout for squad medic, will be assigned team red and made "attendant"
 ];
 
 // This is for when you want to spawn in the wave upon some custom mission condition rather than player count
