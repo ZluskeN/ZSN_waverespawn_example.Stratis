@@ -39,4 +39,4 @@ if (isClass(configFile >> "CfgPatches" >> "task_force_radio")) then {
 };
 ["Terminate"] remoteExec ["BIS_fnc_EGSpectator", _zsn_units];
 ["", "BLACK IN"] remoteexec ["titleText", _zsn_units];
-[format ["New squad spawned, callsign %2. %1 is the the squad leader", name _hr, _grp]] remoteExec ["hint", resistance];
+[format ["New squad spawned, callsign %2. %1 is the the squad leader", name _hr, _grp]] remoteExec ["hintSilent", resistance];
