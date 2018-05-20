@@ -28,21 +28,21 @@ player addEventHandler ["Respawn", {
 		[] spawn {
 			switch (playerSide) do {
 				case east: {
-					[player] join createGroup CIVILIAN;
+					[[player], createGroup CIVILIAN] remoteexec ["joinSilent"];
 					while {(zsn_wce ^ 2) >= 1 && side player == CIVILIAN} do {
 						hintSilent format ["Wave Respawn is in effect, wave size is %1. You will respawn when %2 more players die.", zsn_wse, zsn_wse - (count list zsn_eplayer_trg)];
 						sleep 1;
 					};
 				};
 				case west: {
-					[player] join createGroup CIVILIAN;
+					[[player], createGroup CIVILIAN] remoteexec ["joinSilent"];
 					while {(zsn_wcw ^ 2) >= 1 && side player == CIVILIAN} do {
 						hintSilent format ["Wave Respawn is in effect, wave size is %1. You will respawn when %2 more players die.", zsn_wsw, zsn_wsw - (count list zsn_wplayer_trg)];
 						sleep 1;
 					};
 				};
 				case resistance: {
-					[player] join createGroup CIVILIAN;
+					[[player], createGroup CIVILIAN] remoteexec ["joinSilent"];
 					while {(zsn_wcg ^ 2) >= 1 && side player == CIVILIAN} do {
 						hintSilent format ["Wave Respawn is in effect, wave size is %1. You will respawn when %2 more players die.", zsn_wsg, zsn_wsg - (count list zsn_gplayer_trg)];
 						sleep 1;

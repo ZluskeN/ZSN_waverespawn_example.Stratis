@@ -1,6 +1,6 @@
 private _zsn_list = _this;
 private _zsn_units = [];
-{if (_foreachindex < zsn_wsw) then {_zsn_units pushback _x};} foreach _zsn_list;
+{_zsn_units pushback _x} foreach _zsn_list;
 ["", "BLACK OUT"] remoteexec ["titleText", _zsn_units];
 _zsn_ranked = _zsn_units apply {[rankId _x, rating _x, _x]};
 _zsn_ranked = _zsn_ranked - [ -1 ];
@@ -30,13 +30,6 @@ if (zsn_low) then {
 	if (count _zsn_units > 8) then {[_zsn_ranked select 8 select 2, zsn_wloadouts select 8] call zsn_fnc_loadInventory;};
 	if (count _zsn_units > 9) then {[_zsn_ranked select 9 select 2, zsn_wloadouts select 9] call zsn_fnc_loadInventory;};
 };
-remoteexec ["zsn_fnc_clearweapon", _zsn_units];
 {_x setVehiclePosition [(getpos zsn_respawn_west), [], 8];} forEach _zsn_units;
-if (isClass(configFile >> "CfgPatches" >> "task_force_radio")) then {
-	[player, false] remoteExec ["TFAR_fnc_forceSpectator", _zsn_units];
-	[{if (call TFAR_fnc_haveLRRadio) then {[call TFAR_fnc_activeLRRadio,true] call TFAR_fnc_radioOn}}] remoteExecCall ["bis_fnc_call", _zsn_units];
-	[{if (call TFAR_fnc_haveSWRadio) then {[call TFAR_fnc_activeSWRadio,true] call TFAR_fnc_radioOn}}] remoteExecCall ["bis_fnc_call", _zsn_units];
-};
-["Terminate"] remoteExec ["BIS_fnc_EGSpectator", _zsn_units];
-["", "BLACK IN"] remoteexec ["titleText", _zsn_units];
 [format ["New squad spawned, callsign %2. %1 is the the squad leader", name _hr, _grp]] remoteExec ["hintSilent", west];
+[_zsn_units] remoteexeccall ["zsn_fnc_newwave"];

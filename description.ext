@@ -71,6 +71,10 @@ class CfgFunctions
 			{
 				file = "functions\fn_safetyfirst.sqf";
 			};
+			class newwave
+			{
+				file = "functions\fn_newwave.sqf";
+			};
 		};
 	};
 };
