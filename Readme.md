@@ -1,4 +1,4 @@
-This is a wave respawn script that allows respawn but only when a certain number of players have been killed. It runs on top of the vanilla respawn system.
+This is a wave respawn script that allows players to respawn in wave of predefines sizes. It runs on top of the vanilla respawn system.
 
 What you need to do:
 
@@ -10,7 +10,7 @@ This is the place the players will be moved to when they are given control back.
 
 When they die they will respawn on respawn markers (respawn_east, respawn_west, respawn_guerrila, if you do not place these markers, the script will put them down for you, at 0,0,0). There they will wait until they have reached a certain number defined by you. They will then be moved to our pre-placed respawn objects and given control back
 
-[west, 4, -1, true, west] remoteExec ["zsn_waverespawn", 2];
+[west, 4, -1, true, west] remoteExec ["zsn_fnc_waverespawn", 2];
 
 Is the line used to call the script, it contains six params;
 
@@ -28,7 +28,7 @@ If false thay will respawn with the gear they had at mission start. Default is f
 This line can be executed anywhere in the mission at any point, it can be used to change the respawn conditions during gameplay.
 I have also introduced the function zsn_fnc_respawndebug, which executes the script again with the current existing conditions (call zsn_fnc_respawndebug).
 
-There is also support for setting params size and count in the mission lobby, (see the top line in initserver.sqf for resistance) the params are set in description.ext
+There is also support for setting params size and count in the mission lobby, (see the top line in initserver.sqf for resistance) the params are defined in description.ext
 
 To initialize the script for multiple sides, just execute the command line multiple times, this example mission executes it three times for three sides.
 
