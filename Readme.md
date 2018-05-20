@@ -21,7 +21,7 @@ Is the line used to call the script, it contains five params;
 - Wave count: The max number of waves to respawn, default is -1 (infinite)
 
 - Custom Loadout: New wave gets custom loadouts defined in description.ext of config. 
-If false thay will respawn with the gear they had at mission start. Default is false. If you set this to true, you can use classnames from config or define custom loadouts in description.ext. Place them in the array in initserver.sqf
+If false they will respawn with the gear they had at mission start. Default is false. If you set this to true, you can use classnames from config or define custom loadouts in description.ext. Place them in the array in initserver.sqf
 
 - Respawn side: which side the new wave will belong to, if you want to respawn players to a different side, default is the same as whatever you set in the first param
 
