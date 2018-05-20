@@ -18,7 +18,7 @@ If false thay will respawn with the gear they had at mission start. Default is f
 - Respawn side: which side the new wave will belong to, if you want to respawn players to a different side, default is the same as whatever you set in the first param
 
 This line can be executed anywhere in the mission at any point, it can be used to change the respawn conditions during gameplay.
-I have also introduced the functio zsn_fnc_respawndebug, which executes the script again with the current existing conditions (call zsn_fnc_respawndebug).
+I have also introduced the function zsn_fnc_respawndebug, which executes the script again with the current existing conditions (call zsn_fnc_respawndebug).
 
 There is also support for setting params size and count in the mission lobby, (see the top line in initserver.sqf for resistance) the params are set in description.ext
 
