@@ -12,7 +12,7 @@ When they die they will respawn on respawn markers (respawn_east, respawn_west, 
 
 [west, 4, -1, true, west] remoteExec ["zsn_fnc_waverespawn", 2];
 
-Is the line used to call the script, it contains six params;
+Is the line used to call the script, it contains five params;
 
 - Side: the side to use wave respawn, default is West.
 
