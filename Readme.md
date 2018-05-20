@@ -1,6 +1,14 @@
-Place objects in the editor, name them zsn_respawn_east, zsn_respawn_west and/or zsn_respawn_guerrila.
+This is a wave respawn script that allows respawn but only when a certain number of players have been killed. It runs on top of the vanilla respawn system.
+
+What you need to do:
+
+move initserver.sqf, description.ext and the functions folder into your mission folder.
+
+Open up your mission and place objects in the editor, name them zsn_respawn_east, zsn_respawn_west and/or zsn_respawn_guerrila.
 This is the place the players will be moved to when they are given control back. Make sure they are objects,
 (I recommend the invisible Helipad, but any object is supported, including vehicles)
+
+When they die they will respawn on respawn markers (respawn_east, respawn_west, respawn_guerrila, if you do not place these markers, the script will put them down for you, at 0,0,0). There they will wait until they have reached a certain number defined by you. They will then be moved to our pre-placed respawn objects and given control back
 
 [west, 4, -1, true, west] remoteExec ["zsn_waverespawn", 2];
 
