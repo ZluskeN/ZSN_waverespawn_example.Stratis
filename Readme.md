@@ -1,4 +1,4 @@
-This is a wave respawn script that allows players to respawn in wave of predefines sizes. It runs on top of the vanilla respawn system.
+This is a wave respawn script that allows players to respawn in waves of predefines sizes. It runs on top of the vanilla respawn system.
 
 What you need to do:
 
