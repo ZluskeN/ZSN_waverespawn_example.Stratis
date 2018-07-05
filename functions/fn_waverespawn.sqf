@@ -31,7 +31,7 @@ switch (_zsn_side) do {
 		if (zsn_rse == east) then {zsn_est setTriggerStatements ["isServer && (zsn_wce ^ 2) >= 1 && {Side _x == civilian} count thislist >= zsn_wse", "
 			_zsn_units = [];
 			{if (_foreachindex < zsn_wse) then {_zsn_units pushback _x};} foreach thislist; 
-			_zsn_units spawn zsn_fnc_spawnwave_east;
+			_zsn_units call zsn_fnc_spawnwave_east;
 			zsn_wce = zsn_wce - 1; publicVariable 'zsn_wce'; 
 			if (zsn_wce == 0 && zsn_ofe > 0) then {
 				[east, zsn_ofe, 1, zsn_loe, zsn_rse] remoteexec ['zsn_fnc_waverespawn',2];
@@ -40,7 +40,7 @@ switch (_zsn_side) do {
 		if (zsn_rse == west) then {zsn_est setTriggerStatements ["isServer && (zsn_wce ^ 2) >= 1 && {Side _x == civilian} count thislist >= zsn_wse", "
 			_zsn_units = [];
 			{if (_foreachindex < zsn_wse) then {_zsn_units pushback _x};} foreach thislist; 
-			_zsn_units spawn zsn_fnc_spawnwave_west;
+			_zsn_units call zsn_fnc_spawnwave_west;
 			zsn_wce = zsn_wce - 1; publicVariable 'zsn_wce'; 
 			if (zsn_wce == 0 && zsn_ofe > 0) then {
 				[east, zsn_ofe, 1, zsn_loe, zsn_rse] remoteexec ['zsn_fnc_waverespawn',2];
@@ -49,7 +49,7 @@ switch (_zsn_side) do {
 		if (zsn_rse == resistance) then {zsn_est setTriggerStatements ["isServer && (zsn_wce ^ 2) >= 1 && {Side _x == civilian} count thislist >= zsn_wse", "
 			_zsn_units = [];
 			{if (_foreachindex < zsn_wse) then {_zsn_units pushback _x};} foreach thislist; 
-			_zsn_units spawn zsn_fnc_spawnwave_resistance;
+			_zsn_units call zsn_fnc_spawnwave_resistance;
 			zsn_wce = zsn_wce - 1; publicVariable 'zsn_wce'; 
 			if (zsn_wce == 0 && zsn_ofe > 0) then {
 				[east, zsn_ofe, 1, zsn_loe, zsn_rse] remoteexec ['zsn_fnc_waverespawn',2];
@@ -81,7 +81,7 @@ switch (_zsn_side) do {
 		if (zsn_rsw == east) then {zsn_wst setTriggerStatements ["isServer && (zsn_wcw ^ 2) >= 1 && {Side _x == civilian} count thislist >= zsn_wsw", "
 			_zsn_units = [];
 			{if (_foreachindex < zsn_wsw) then {_zsn_units pushback _x};} foreach thislist; 
-			_zsn_units spawn zsn_fnc_spawnwave_east;
+			_zsn_units call zsn_fnc_spawnwave_east;
 			zsn_wcw = zsn_wcw - 1; publicVariable 'zsn_wcw'; 
 			if (zsn_wcw == 0 && zsn_ofw > 0) then {
 				[west, zsn_ofw, 1, zsn_low, zsn_rsw] remoteexec ['zsn_fnc_waverespawn',2];
@@ -90,7 +90,7 @@ switch (_zsn_side) do {
 		if (zsn_rsw == west) then {zsn_wst setTriggerStatements ["isServer && (zsn_wcw ^ 2) >= 1 && {Side _x == civilian} count thislist >= zsn_wsw", "
 			_zsn_units = [];
 			{if (_foreachindex < zsn_wsw) then {_zsn_units pushback _x};} foreach thislist; 
-			_zsn_units spawn zsn_fnc_spawnwave_west;
+			_zsn_units call zsn_fnc_spawnwave_west;
 			zsn_wcw = zsn_wcw - 1; publicVariable 'zsn_wcw'; 
 			if (zsn_wcw == 0 && zsn_ofw > 0) then {
 				[west, zsn_ofw, 1, zsn_low, zsn_rsw] remoteexec ['zsn_fnc_waverespawn',2];
@@ -99,7 +99,7 @@ switch (_zsn_side) do {
 		if (zsn_rsw == resistance) then {zsn_wst setTriggerStatements ["isServer && (zsn_wcw ^ 2) >= 1 && {Side _x == civilian} count thislist >= zsn_wsw", "
 			_zsn_units = [];
 			{if (_foreachindex < zsn_wsw) then {_zsn_units pushback _x};} foreach thislist; 
-			_zsn_units spawn zsn_fnc_spawnwave_resistance;
+			_zsn_units call zsn_fnc_spawnwave_resistance;
 			zsn_wcw = zsn_wcw - 1; publicVariable 'zsn_wcw'; 
 			if (zsn_wcw == 0 && zsn_ofw > 0) then {
 				[west, zsn_ofw, 1, zsn_low, zsn_rsw] remoteexec ['zsn_fnc_waverespawn',2];
@@ -131,7 +131,7 @@ switch (_zsn_side) do {
 		if (zsn_rsg == east) then {zsn_gst setTriggerStatements ["isServer && (zsn_wcg ^ 2) >= 1 && {Side _x == civilian} count thislist >= zsn_wsg", "
 			_zsn_units = [];
 			{if (_foreachindex < zsn_wsg) then {_zsn_units pushback _x};} foreach thislist; 
-			_zsn_units spawn zsn_fnc_spawnwave_east;
+			_zsn_units call zsn_fnc_spawnwave_east;
 			zsn_wcg = zsn_wcg - 1; publicVariable 'zsn_wcg'; 
 			if (zsn_wcg == 0 && zsn_ofg > 0) then {
 				[resistance, zsn_ofg, 1, zsn_log, zsn_rsg] remoteexec ['zsn_fnc_waverespawn',2];
@@ -140,7 +140,7 @@ switch (_zsn_side) do {
 		if (zsn_rsg == west) then {zsn_gst setTriggerStatements ["isServer && (zsn_wcg ^ 2) >= 1 && {Side _x == civilian} count thislist >= zsn_wsg", "
 			_zsn_units = [];
 			{if (_foreachindex < zsn_wsg) then {_zsn_units pushback _x};} foreach thislist; 
-			_zsn_units spawn zsn_fnc_spawnwave_west;
+			_zsn_units call zsn_fnc_spawnwave_west;
 			zsn_wcg = zsn_wcg - 1; publicVariable 'zsn_wcg'; 
 			if (zsn_wcg == 0 && zsn_ofg > 0) then {
 				[resistance, zsn_ofg, 1, zsn_log, zsn_rsg] remoteexec ['zsn_fnc_waverespawn',2];
@@ -149,7 +149,7 @@ switch (_zsn_side) do {
 		if (zsn_rsg == resistance) then {zsn_gst setTriggerStatements ["isServer && (zsn_wcg ^ 2) >= 1 && {Side _x == civilian} count thislist >= zsn_wsg", "
 			_zsn_units = [];
 			{if (_foreachindex < zsn_wsg) then {_zsn_units pushback _x};} foreach thislist; 
-			_zsn_units spawn zsn_fnc_spawnwave_resistance;
+			_zsn_units call zsn_fnc_spawnwave_resistance;
 			zsn_wcg = zsn_wcg - 1; publicVariable 'zsn_wcg'; 
 			if (zsn_wcg == 0 && zsn_ofg > 0) then {
 				[resistance, zsn_ofg, 1, zsn_log, zsn_rsg] remoteexec ['zsn_fnc_waverespawn',2];
