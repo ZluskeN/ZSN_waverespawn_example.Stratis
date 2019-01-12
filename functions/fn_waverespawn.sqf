@@ -1,6 +1,6 @@
 params [
 	["_zsn_side", west, [east]],			//Side to execute wave respawn for 		(SIDE, Default west)
-	["_zsn_ws", 8, [9]],					//Size of respawn waves				(NUMBER, Default 8)
+	["_zsn_ws", 2, [9]],					//Size of respawn waves				(NUMBER, Default 2)
 	["_zsn_wc", -1, [8]],					//Number of respawn waves 			(NUMBER, Default -1 = infinite)
 	["_zsn_lo", false, [true]],				//new wave receives custom gear			(BOOLEAN, Default false)
 	["_zsn_rs", _this select 0, [east]]		//Side to execute wave respawn for 		(SIDE, Default same as _zsn_side)
@@ -9,6 +9,7 @@ zsn_pvp = false;
 if (isNil "zsn_wre") then {zsn_wre = false; publicVariable "zsn_wre";};
 if (isNil "zsn_wrw") then {zsn_wrw = false; publicVariable "zsn_wrw";};
 if (isNil "zsn_wrg") then {zsn_wrg = false; publicVariable "zsn_wrg";};
+if (_zsn_ws < 2) then {_zsn_ws = 2;};
 zsn_rd = (getMissionConfigValue ["respawnDelay",2]) + 1;
 switch (_zsn_side) do {
 	case east: {
