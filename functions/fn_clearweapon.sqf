@@ -1,9 +1,8 @@
-
 // Anrop Gold Members get golden AKs
 if (getPlayerUID player == 76561198130090580) then {
+	_magtype = currentmagazine player;  
+	_magcount = {_x == _magtype} count magazines player;  
 	if (currentWeapon player isKindOf ["sfp_ak5_base", configFile >> "CfgWeapons"];) then {
-		_magtype = currentmagazine player;  
-		_magcount = {_x == _magtype} count magazines player;  
 		for _magtype from 0 to _magcount do {
 			player removemagazine _magtype;
 			player addmagazine "sfp_30Rnd_556x45_Stanag_tracer";
@@ -12,8 +11,6 @@ if (getPlayerUID player == 76561198130090580) then {
 		player addweapon "sfp_ak5_gold";
 	} else {
 		if (currentWeapon player isKindOf ["CUP_arifle_AK_Base", configFile >> "CfgWeapons"];) then {
-			_magtype = currentmagazine player;  
-			_magcount = {_x == _magtype} count magazines player;  
 			for _magtype from 0 to _magcount do {
 				player removemagazine _magtype;
 				player addmagazine "CUP_30Rnd_762x39_AK47_TK_M";
