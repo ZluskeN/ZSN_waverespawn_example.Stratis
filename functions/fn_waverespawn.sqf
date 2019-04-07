@@ -1,9 +1,9 @@
 params [
-	["_zsn_side", west, [east]],			//Side to execute wave respawn for 		(SIDE, Default west)
-	["_zsn_ws", 2, [9]],					//Size of respawn waves				(NUMBER, Default 2)
-	["_zsn_wc", -1, [8]],					//Number of respawn waves 			(NUMBER, Default -1 = infinite)
-	["_zsn_lo", false, [true]],				//new wave receives custom gear			(BOOLEAN, Default false)
-	["_zsn_rs", _this select 0, [east]]		//Side to execute wave respawn for 		(SIDE, Default same as _zsn_side)
+	["_zsn_side", west, [east]],									//Side to execute wave respawn for 		(SIDE, Default west)
+	["_zsn_ws", (floor ((playersNumber _this select 0)/4)), [9]],	//Size of respawn waves					(NUMBER, Default 2)
+	["_zsn_wc", -1, [8]],											//Number of respawn waves 				(NUMBER, Default -1 = infinite)
+	["_zsn_lo", false, [true]],										//new wave receives custom gear			(BOOLEAN, Default false)
+	["_zsn_rs", _this select 0, [east]]								//Side to execute wave respawn for 		(SIDE, Default same as _zsn_side)
 ];
 zsn_pvp = false;
 if (isNil "zsn_wre") then {zsn_wre = false; publicVariable "zsn_wre";};
@@ -20,6 +20,11 @@ switch (_zsn_side) do {
 			respawn_east = createMarker ["respawn_east", [100,0]];
 			Edome = "Land_Dome_Small_F" createVehicle [100,0,0];
 			Edome setPos [100,0,0];
+		};
+		if ("zsn_respawn_east" in allMapMarkers) then {
+			_helih = "HeliHEmpty" createVehicle getMarkerPos "zsn_respawn_east"; 
+			_helih setvehiclevarname "zsn_respawn_east"; 
+			zsn_respawn_east = _helih;
 		};
 		zsn_ofe = 0; publicVariable "zsn_ofe";
 		zsn_loe = _zsn_lo; publicVariable "zsn_loe";
@@ -60,7 +65,7 @@ switch (_zsn_side) do {
 		zsn_eft = createTrigger ["EmptyDetector", getmarkerPos "respawn_east"];
 		zsn_eft setTriggerTimeout [zsn_rd, zsn_rd, zsn_rd, true];
 		zsn_eft setTriggerActivation ["civ", "PRESENT", true];
-      		zsn_eft setTriggerStatements ["isServer && {alive _x && Side _x == east} count (allPlayers - entities 'HeadlessClient_F') < 1 && {Side _x == civilian} count thislist >= 1", "[zsn_rse, thisList] call zsn_fnc_allplayersdead;",""];
+      	zsn_eft setTriggerStatements ["isServer && {alive _x && Side _x == east} count (allPlayers - entities 'HeadlessClient_F') < 1 && {Side _x == civilian} count thislist >= 1", "[zsn_rse, thisList] call zsn_fnc_allplayersdead;",""];
 	};
 	case west: {
 		zsn_wrw = true;	publicVariable "zsn_wrw";
@@ -70,6 +75,11 @@ switch (_zsn_side) do {
 			respawn_west = createMarker ["respawn_west", [0,100]];
 			Wdome = "Land_Dome_Small_F" createVehicle [0,100,0];
 			Wdome setPos [0,100,0];
+		};
+		if ("zsn_respawn_west" in allMapMarkers) then {
+			_helih = "HeliHEmpty" createVehicle getMarkerPos "zsn_respawn_west"; 
+			_helih setvehiclevarname "zsn_respawn_west"; 
+			zsn_respawn_west = _helih;
 		};
 		zsn_ofw = 0; publicVariable "zsn_ofw";
 		zsn_low = _zsn_lo; publicVariable "zsn_low";
@@ -110,7 +120,7 @@ switch (_zsn_side) do {
 		zsn_wft = createTrigger ["EmptyDetector", getmarkerPos "respawn_west"];
 		zsn_wft setTriggerTimeout [zsn_rd, zsn_rd, zsn_rd, true];
 		zsn_wft setTriggerActivation ["civ", "PRESENT", true];
-       		zsn_wft setTriggerStatements ["isServer && {alive _x && Side _x == west} count (allPlayers - entities 'HeadlessClient_F') < 1 && {Side _x == civilian} count thislist >= 1", "[zsn_rsw, thisList] call zsn_fnc_allplayersdead;",""];
+       	zsn_wft setTriggerStatements ["isServer && {alive _x && Side _x == west} count (allPlayers - entities 'HeadlessClient_F') < 1 && {Side _x == civilian} count thislist >= 1", "[zsn_rsw, thisList] call zsn_fnc_allplayersdead;",""];
 	};
 	case resistance: {
 		zsn_wrg = true; publicVariable "zsn_wrg";
@@ -120,6 +130,11 @@ switch (_zsn_side) do {
 			respawn_guerrila = createMarker ["respawn_guerrila", [0,0]];
 			Gdome = "Land_Dome_Small_F" createVehicle [0,0,0];
 			Gdome setPos [0,0,0];
+		};
+		if ("zsn_respawn_guerrila" in allMapMarkers) then {
+			_helih = "HeliHEmpty" createVehicle getMarkerPos "zsn_respawn_guerrila"; 
+			_helih setvehiclevarname "zsn_respawn_guerrila"; 
+			zsn_respawn_guerrila = _helih;
 		};
 		zsn_ofg = 0; publicVariable "zsn_ofg";
 		zsn_log = _zsn_lo; publicVariable "zsn_log";
@@ -160,7 +175,7 @@ switch (_zsn_side) do {
 		zsn_gft = createTrigger ["EmptyDetector", getmarkerPos "respawn_guerrila"];
 		zsn_gft setTriggerTimeout [zsn_rd, zsn_rd, zsn_rd, true];
 		zsn_gft setTriggerActivation ["civ", "PRESENT", true];
-           	zsn_gft setTriggerStatements ["isServer && {alive _x && Side _x == resistance} count (allPlayers - entities 'HeadlessClient_F') < 1 && {Side _x == civilian} count thislist >= 1", "[zsn_rsg, thisList] call zsn_fnc_allplayersdead;",""];
+        zsn_gft setTriggerStatements ["isServer && {alive _x && Side _x == resistance} count (allPlayers - entities 'HeadlessClient_F') < 1 && {Side _x == civilian} count thislist >= 1", "[zsn_rsg, thisList] call zsn_fnc_allplayersdead;",""];
 	};
 };
 addMissionEventHandler ["entityKilled", {

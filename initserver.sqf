@@ -62,4 +62,3 @@ zsn_gct setTriggerStatements [zsn_spawnconditions select 2, "thisList call zsn_f
 
 // This the player inits that run client-side on mission start (safetyfirst is the infamous safety vest script)
 remoteexec ["zsn_fnc_localplayerinit", 0, true];
-//remoteexec ["zsn_fnc_safetyfirst", -2];

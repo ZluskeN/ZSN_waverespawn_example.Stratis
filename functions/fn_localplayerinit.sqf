@@ -18,31 +18,35 @@ player addEventHandler ["Respawn", {
 	[player] join grpNull;
 	titleText ["", "BLACK OUT"];
 	[player, [missionNamespace, "inventory_var"]] call BIS_fnc_loadInventory;
-	if ((player inArea zsn_eplayer_trg) OR (player inArea zsn_wplayer_trg)  OR (player inArea zsn_gplayer_trg)) then {
+	if ((player inArea zsn_eplayer_trg) OR (player inArea zsn_wplayer_trg) OR (player inArea zsn_gplayer_trg)) then {
 		["Initialize",[player, [playerside], false, false, true, true, true, true, true, true]] call BIS_fnc_EGSpectator;
 		if (isClass(configFile >> "CfgPatches" >> "task_force_radio")) then {
 			[player, true] call TFAR_fnc_forceSpectator;
 			[call TFAR_fnc_activeSWRadio,false] call TFAR_fnc_radioOn;
 			[call TFAR_fnc_activeLRRadio,false] call TFAR_fnc_radioOn;
 		};
-		[] spawn {
-			switch (playerSide) do {
-				case east: {
-					[[player], createGroup CIVILIAN] remoteexec ["joinSilent"];
+		switch (playerSide) do {
+			case east: {
+				[[player], createGroup CIVILIAN] remoteexec ["joinSilent"];
+				[] spawn {
 					while {(zsn_wce ^ 2) >= 1 && side player == CIVILIAN} do {
 						hintSilent format ["Wave Respawn is in effect, wave size is %1. You will respawn when %2 more players die.", zsn_wse, zsn_wse - (count list zsn_eplayer_trg)];
 						sleep 1;
 					};
 				};
-				case west: {
-					[[player], createGroup CIVILIAN] remoteexec ["joinSilent"];
+			};
+			case west: {
+				[[player], createGroup CIVILIAN] remoteexec ["joinSilent"];
+				[] spawn {
 					while {(zsn_wcw ^ 2) >= 1 && side player == CIVILIAN} do {
 						hintSilent format ["Wave Respawn is in effect, wave size is %1. You will respawn when %2 more players die.", zsn_wsw, zsn_wsw - (count list zsn_wplayer_trg)];
 						sleep 1;
 					};
 				};
-				case resistance: {
-					[[player], createGroup CIVILIAN] remoteexec ["joinSilent"];
+			};
+			case resistance: {
+				[[player], createGroup CIVILIAN] remoteexec ["joinSilent"];
+				[] spawn {
 					while {(zsn_wcg ^ 2) >= 1 && side player == CIVILIAN} do {
 						hintSilent format ["Wave Respawn is in effect, wave size is %1. You will respawn when %2 more players die.", zsn_wsg, zsn_wsg - (count list zsn_gplayer_trg)];
 						sleep 1;
