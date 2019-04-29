@@ -57,3 +57,5 @@ player addEventHandler ["Respawn", {
 	};
 	titleText ["", "BLACK IN"];
 }];
+
+if (didJIP) then {player setDamage 1};
