@@ -1,9 +1,9 @@
 params [
-	["_zsn_side", west, [east]],									//Side to execute wave respawn for 		(SIDE, Default west)
-	["_zsn_ws", (floor ((playersNumber _this select 0)/4)), [9]],	//Size of respawn waves					(NUMBER, Default 2)
-	["_zsn_wc", -1, [8]],											//Number of respawn waves 				(NUMBER, Default -1 = infinite)
-	["_zsn_lo", false, [true]],										//new wave receives custom gear			(BOOLEAN, Default false)
-	["_zsn_rs", _this select 0, [east]]								//Side to execute wave respawn for 		(SIDE, Default same as _zsn_side)
+	["_zsn_side", west, [east]],					//Side to execute wave respawn for 		(SIDE, Default west)
+	["_zsn_ws", (floor ((playersNumber _this select 0)/4)), [9]],	//Size of respawn waves				(NUMBER, Default is 1/4 of the number of players on that side)
+	["_zsn_wc", -1, [8]],						//Number of respawn waves 			(NUMBER, Default -1 = infinite)
+	["_zsn_lo", false, [true]],					//new wave receives custom gear			(BOOLEAN, Default false)
+	["_zsn_rs", _this select 0, [east]]				//Side to execute wave respawn for 		(SIDE, Default same as _zsn_side)
 ];
 zsn_pvp = false;
 if (isNil "zsn_wre") then {zsn_wre = false; publicVariable "zsn_wre";};
