@@ -58,4 +58,5 @@ player addEventHandler ["Respawn", {
 	titleText ["", "BLACK IN"];
 }];
 
+// instakill jipped players, now they end up in spectator mode and will spawn in with the next wave 
 if (didJIP) then {player setDamage 1};
