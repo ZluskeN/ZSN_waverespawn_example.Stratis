@@ -44,7 +44,7 @@ zsn_gloadouts = [
 ];
 
 // This is for when you want to spawn in the wave upon some custom mission condition rather than player count. 
-// Replace "false" with your custom condition or variable
+// Replace "false" with your custom condition or variable, do NOT set it to "true"
 zsn_spawnconditions = [
 	"false",		//Custom spawn condition for REDFOR
 	"false",		//Custom spawn condition for BLUFOR
