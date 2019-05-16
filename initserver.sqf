@@ -1,8 +1,8 @@
 // Initial init for wave respawn, run for the side or sides you want to use wave respawn for, 
 // this example is for all sides. In this example resistance uses custom mission parameters that can be set in the lobby
-[east, 6, 5, true] remoteexec ["zsn_fnc_waverespawn", 2];
-[west, 5, 6, true] remoteexec ["zsn_fnc_waverespawn", 2];
-[resistance,(paramsarray select 0),(paramsarray select 1)] remoteexec ["zsn_fnc_waverespawn", 2];
+[east, 6, 5, true] remoteexecCall ["zsn_fnc_waverespawn", 2];
+[west, 5, 6, true] remoteexecCall ["zsn_fnc_waverespawn", 2];
+[resistance,(paramsarray select 0),(paramsarray select 1)] remoteexecCall ["zsn_fnc_waverespawn", 2];
 
 // If the fourth param is "true" you can define custom loadouts for the new wave below. 
 // Either from description.ext or config. If it is false, you can delete this segment
