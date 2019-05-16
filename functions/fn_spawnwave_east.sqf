@@ -32,4 +32,4 @@ if (zsn_loe) then {
 };
 {_x setVehiclePosition [(getpos zsn_respawn_east), [], 8];} forEach _zsn_units;
 [format ["New squad spawned, callsign %2. %1 is the the squad leader", name _hr, _grp]] remoteExec ["hintSilent", east];
-[_zsn_units] remoteexec ["zsn_fnc_newwave"];
+[_zsn_units] remoteexecCall ["zsn_fnc_newwave"];
