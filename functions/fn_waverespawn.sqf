@@ -40,7 +40,7 @@ switch (_zsn_side) do {
 			_zsn_units call zsn_fnc_spawnwave_east;
 			zsn_wce = zsn_wce - 1; publicVariable 'zsn_wce'; 
 			if (zsn_wce == 0 && zsn_ofe > 0) then {
-				[east, zsn_ofe, 1, zsn_loe, zsn_rse] remoteexec ['zsn_fnc_waverespawn',2];
+				[east, zsn_ofe, 1, zsn_loe, zsn_rse] remoteexecCall ['zsn_fnc_waverespawn',2];
 			};
 		",""];};
 		if (zsn_rse == west) then {zsn_est setTriggerStatements ["isServer && (zsn_wce ^ 2) >= 1 && {Side _x == civilian} count thislist >= zsn_wse", "
@@ -49,7 +49,7 @@ switch (_zsn_side) do {
 			_zsn_units call zsn_fnc_spawnwave_west;
 			zsn_wce = zsn_wce - 1; publicVariable 'zsn_wce'; 
 			if (zsn_wce == 0 && zsn_ofe > 0) then {
-				[east, zsn_ofe, 1, zsn_loe, zsn_rse] remoteexec ['zsn_fnc_waverespawn',2];
+				[east, zsn_ofe, 1, zsn_loe, zsn_rse] remoteexecCall ['zsn_fnc_waverespawn',2];
 			};
 		",""];};
 		if (zsn_rse == resistance) then {zsn_est setTriggerStatements ["isServer && (zsn_wce ^ 2) >= 1 && {Side _x == civilian} count thislist >= zsn_wse", "
@@ -58,7 +58,7 @@ switch (_zsn_side) do {
 			_zsn_units call zsn_fnc_spawnwave_resistance;
 			zsn_wce = zsn_wce - 1; publicVariable 'zsn_wce'; 
 			if (zsn_wce == 0 && zsn_ofe > 0) then {
-				[east, zsn_ofe, 1, zsn_loe, zsn_rse] remoteexec ['zsn_fnc_waverespawn',2];
+				[east, zsn_ofe, 1, zsn_loe, zsn_rse] remoteexecCall ['zsn_fnc_waverespawn',2];
 			};
 		",""];};
 		if (!isNil ("zsn_eft")) then {deleteVehicle zsn_eft;};
@@ -95,7 +95,7 @@ switch (_zsn_side) do {
 			_zsn_units call zsn_fnc_spawnwave_east;
 			zsn_wcw = zsn_wcw - 1; publicVariable 'zsn_wcw'; 
 			if (zsn_wcw == 0 && zsn_ofw > 0) then {
-				[west, zsn_ofw, 1, zsn_low, zsn_rsw] remoteexec ['zsn_fnc_waverespawn',2];
+				[west, zsn_ofw, 1, zsn_low, zsn_rsw] remoteexecCall ['zsn_fnc_waverespawn',2];
 			};
 		",""];};
 		if (zsn_rsw == west) then {zsn_wst setTriggerStatements ["isServer && (zsn_wcw ^ 2) >= 1 && {Side _x == civilian} count thislist >= zsn_wsw", "
@@ -104,7 +104,7 @@ switch (_zsn_side) do {
 			_zsn_units call zsn_fnc_spawnwave_west;
 			zsn_wcw = zsn_wcw - 1; publicVariable 'zsn_wcw'; 
 			if (zsn_wcw == 0 && zsn_ofw > 0) then {
-				[west, zsn_ofw, 1, zsn_low, zsn_rsw] remoteexec ['zsn_fnc_waverespawn',2];
+				[west, zsn_ofw, 1, zsn_low, zsn_rsw] remoteexecCall ['zsn_fnc_waverespawn',2];
 			};
 		",""];};
 		if (zsn_rsw == resistance) then {zsn_wst setTriggerStatements ["isServer && (zsn_wcw ^ 2) >= 1 && {Side _x == civilian} count thislist >= zsn_wsw", "
@@ -113,7 +113,7 @@ switch (_zsn_side) do {
 			_zsn_units call zsn_fnc_spawnwave_resistance;
 			zsn_wcw = zsn_wcw - 1; publicVariable 'zsn_wcw'; 
 			if (zsn_wcw == 0 && zsn_ofw > 0) then {
-				[west, zsn_ofw, 1, zsn_low, zsn_rsw] remoteexec ['zsn_fnc_waverespawn',2];
+				[west, zsn_ofw, 1, zsn_low, zsn_rsw] remoteexecCall ['zsn_fnc_waverespawn',2];
 			};
 		",""];};
 		if (!isNil ("zsn_wft")) then {deleteVehicle zsn_wft;};
@@ -150,7 +150,7 @@ switch (_zsn_side) do {
 			_zsn_units call zsn_fnc_spawnwave_east;
 			zsn_wcg = zsn_wcg - 1; publicVariable 'zsn_wcg'; 
 			if (zsn_wcg == 0 && zsn_ofg > 0) then {
-				[resistance, zsn_ofg, 1, zsn_log, zsn_rsg] remoteexec ['zsn_fnc_waverespawn',2];
+				[resistance, zsn_ofg, 1, zsn_log, zsn_rsg] remoteexecCall ['zsn_fnc_waverespawn',2];
 			};
 		",""];};
 		if (zsn_rsg == west) then {zsn_gst setTriggerStatements ["isServer && (zsn_wcg ^ 2) >= 1 && {Side _x == civilian} count thislist >= zsn_wsg", "
@@ -159,7 +159,7 @@ switch (_zsn_side) do {
 			_zsn_units call zsn_fnc_spawnwave_west;
 			zsn_wcg = zsn_wcg - 1; publicVariable 'zsn_wcg'; 
 			if (zsn_wcg == 0 && zsn_ofg > 0) then {
-				[resistance, zsn_ofg, 1, zsn_log, zsn_rsg] remoteexec ['zsn_fnc_waverespawn',2];
+				[resistance, zsn_ofg, 1, zsn_log, zsn_rsg] remoteexecCall ['zsn_fnc_waverespawn',2];
 			};
 		",""];};
 		if (zsn_rsg == resistance) then {zsn_gst setTriggerStatements ["isServer && (zsn_wcg ^ 2) >= 1 && {Side _x == civilian} count thislist >= zsn_wsg", "
@@ -168,7 +168,7 @@ switch (_zsn_side) do {
 			_zsn_units call zsn_fnc_spawnwave_resistance;
 			zsn_wcg = zsn_wcg - 1; publicVariable 'zsn_wcg'; 
 			if (zsn_wcg == 0 && zsn_ofg > 0) then {
-				[resistance, zsn_ofg, 1, zsn_log, zsn_rsg] remoteexec ['zsn_fnc_waverespawn',2];
+				[resistance, zsn_ofg, 1, zsn_log, zsn_rsg] remoteexecCall ['zsn_fnc_waverespawn',2];
 			};
 		",""];};
 		if (!isNil ("zsn_gft")) then {deleteVehicle zsn_gft;};
