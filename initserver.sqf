@@ -64,4 +64,4 @@ zsn_gct setTriggerActivation ["civ", "PRESENT", true];
 zsn_gct setTriggerStatements [zsn_spawnconditions select 2, "thisList call zsn_fnc_spawnwave_resistance;",""];
 
 // This the player inits that run client-side on mission start
-remoteexec ["zsn_fnc_localplayerinit", 0, true];
+remoteexecCall ["zsn_fnc_localplayerinit", 0, true];
