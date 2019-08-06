@@ -4,13 +4,14 @@ params [
 	["_ea",[]]
 ];
 ["AmmoboxInit",[_box,false]] spawn BIS_fnc_arsenal;
-private _ua = [];
+_ua = [];
 	{
 	if ((configName _x) isKindoF "CAManBase") then {
 		_ua pushback (configName _x);
 	};
-} forEach ("getText (_x >> 'faction') == _fact" configClasses (configfile >> "CfgVehicles"));
-private _ra = _ua arrayintersect _ea;
+} forEach ("(getText (_x >> 'faction') == _fact) && (getNumber (_x >> 'scope') > 1)" configClasses (configfile >> "CfgVehicles"));
+
+_ra = _ua arrayintersect _ea;
 if ((count _ra) > 0) then {_ua = _ua - _ra} else {_ua append _ea};
 {
 	private _lo = getUnitLoadout (configFile >> "CfgVehicles" >> _x);
@@ -23,12 +24,12 @@ if ((count _ra) > 0) then {_ua = _ua - _ra} else {_ua append _ea};
 			{
 				{
 					if (typename (_x select 0) == "ARRAY") then {
-						[_box,_x select 0 select 0,true] call BIS_fnc_addVirtualWeaponCargo
+						[_box,_x select 0 select 0,true] call BIS_fnc_addVirtualWeaponCargo;
 					} else {
-						if ((_x select 0) isKindOf ["CA_Magazine", configFile >> "CfgMagazines"]) then {
-							[_box,_x select 0,true] call BIS_fnc_addVirtualMagazineCargo
+						if (isClass (configFile >> "CfgMagazines" >> _x select 0)) then {
+							[_box,_x select 0,true] call BIS_fnc_addVirtualMagazineCargo;
 						} else {
-							[_box,_x select 0,true] call BIS_fnc_addVirtualItemCargo
+							[_box,_x select 0,true] call BIS_fnc_addVirtualItemCargo;
 						};
 					};
 				} foreach _x
@@ -41,12 +42,12 @@ if ((count _ra) > 0) then {_ua = _ua - _ra} else {_ua append _ea};
 			{
 				{
 					if (typename (_x select 0) == "ARRAY") then {
-						[_box,_x select 0 select 0,true] call BIS_fnc_addVirtualWeaponCargo
+						[_box,_x select 0 select 0,true] call BIS_fnc_addVirtualWeaponCargo;
 					} else {
-						if ((_x select 0) isKindOf ["CA_Magazine", configFile >> "CfgMagazines"]) then {
-							[_box,_x select 0,true] call BIS_fnc_addVirtualMagazineCargo
+						if (isClass (configFile >> "CfgMagazines" >> _x select 0)) then {
+							[_box,_x select 0,true] call BIS_fnc_addVirtualMagazineCargo;
 						} else {
-							[_box,_x select 0,true] call BIS_fnc_addVirtualItemCargo
+							[_box,_x select 0,true] call BIS_fnc_addVirtualItemCargo;
 						};
 					};
 				} foreach _x
@@ -59,12 +60,12 @@ if ((count _ra) > 0) then {_ua = _ua - _ra} else {_ua append _ea};
 			{
 				{
 					if (typename (_x select 0) == "ARRAY") then {
-						[_box,_x select 0 select 0,true] call BIS_fnc_addVirtualWeaponCargo
+						[_box,_x select 0 select 0,true] call BIS_fnc_addVirtualWeaponCargo;
 					} else {
-						if ((_x select 0) isKindOf ["CA_Magazine", configFile >> "CfgMagazines"]) then {
-							[_box,_x select 0,true] call BIS_fnc_addVirtualMagazineCargo
+						if (isClass (configFile >> "CfgMagazines" >> _x select 0)) then {
+							[_box,_x select 0,true] call BIS_fnc_addVirtualMagazineCargo;
 						} else {
-							[_box,_x select 0,true] call BIS_fnc_addVirtualItemCargo
+							[_box,_x select 0,true] call BIS_fnc_addVirtualItemCargo;
 						};
 					};
 				} foreach _x

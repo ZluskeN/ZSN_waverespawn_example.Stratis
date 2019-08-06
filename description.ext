@@ -75,6 +75,10 @@ class CfgFunctions
 			{
 				file = "functions\fn_newwave.sqf";
 			};
+			class hint
+			{
+				file = "functions\fn_hint.sqf";
+			};
 		};
 	};
 };
