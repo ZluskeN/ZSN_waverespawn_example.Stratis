@@ -1,6 +1,6 @@
 params [
 	["_box",""],
-	["_fact",faction player],
+	["_fact",[faction player]],
 	["_ea",[]]
 ];
 ["AmmoboxInit",[_box,false]] spawn BIS_fnc_arsenal;
@@ -9,10 +9,8 @@ _ua = [];
 	if ((configName _x) isKindoF "CAManBase") then {
 		_ua pushback (configName _x);
 	};
-} forEach ("(getText (_x >> 'faction') == _fact) && (getNumber (_x >> 'scope') > 1)" configClasses (configfile >> "CfgVehicles"));
-
-_ra = _ua arrayintersect _ea;
-if ((count _ra) > 0) then {_ua = _ua - _ra} else {_ua append _ea};
+} forEach ("(getText (_x >> 'faction') in _fact) && (getNumber (_x >> 'scope') > 1)" configClasses (configfile >> "CfgVehicles"));
+{if (_x in _ua) then {_ua = _ua - [_x]} else {_ua pushback _x;}} foreach _ea;
 {
 	private _lo = getUnitLoadout (configFile >> "CfgVehicles" >> _x);
 	[_box,[_lo select 0 select 0],true] call BIS_fnc_addVirtualWeaponCargo;
