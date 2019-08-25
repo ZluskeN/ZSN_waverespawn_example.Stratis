@@ -129,7 +129,7 @@ switch (_zsn_side) do {
 		if (isNil ("respawn_guerrila")) then {
 			respawn_guerrila = createMarker ["respawn_guerrila", [0,0]];
 			Gdome = "Land_Dome_Small_F" createVehicle [0,0,0];
-			Gdome setPos [0,0,0];
+			Gdome setPos [100,100,0];
 		};
 		if ("zsn_respawn_guerrila" in allMapMarkers) then {
 			_helih = "HeliHEmpty" createVehicle getMarkerPos "zsn_respawn_guerrila"; 

@@ -18,7 +18,9 @@ player addEventHandler ["Respawn", {
 	[player] join grpNull;
 	titleText ["", "BLACK OUT"];
 	[player, [missionNamespace, "inventory_var"]] call BIS_fnc_loadInventory;
-	if ((player inArea zsn_eplayer_trg) OR (player inArea zsn_wplayer_trg) OR (player inArea zsn_gplayer_trg)) then {
+	sleep 1;
+	zsn_playerlist = (list zsn_eplayer_trg) + (list zsn_wplayer_trg) + (list zsn_gplayer_trg);
+	if (player in playerlist) then {
 		["Initialize",[player, [playerside], false, false, true, true, true, true, true, true]] call BIS_fnc_EGSpectator;
 		if (isClass(configFile >> "CfgPatches" >> "task_force_radio")) then {
 			[player, true] call TFAR_fnc_forceSpectator;
