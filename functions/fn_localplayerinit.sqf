@@ -16,43 +16,39 @@ zsn_gplayer_trg setTriggerActivation ["ANYPLAYER", "PRESENT", true];
 // Add script to respawn event, which will initialize spectating and handle counters
 player addEventHandler ["Respawn", {
 	titleText ["", "BLACK OUT"];
-	[player] join grpNull;
+	[player] joinSilent grpNull;
 	[player, [missionNamespace, "inventory_var"]] call BIS_fnc_loadInventory;
-	sleep 1;
-	zsn_playerlist = (list zsn_eplayer_trg) + (list zsn_wplayer_trg) + (list zsn_gplayer_trg);
-	if (player in playerlist) then {
-		["Initialize",[player, [playerside], false, false, true, true, true, true, true, true]] call BIS_fnc_EGSpectator;
-		if (isClass(configFile >> "CfgPatches" >> "task_force_radio")) then {
-			[player, true] call TFAR_fnc_forceSpectator;
-			[call TFAR_fnc_activeSWRadio,false] call TFAR_fnc_radioOn;
-			[call TFAR_fnc_activeLRRadio,false] call TFAR_fnc_radioOn;
+	["Initialize",[player, [playerside], false, false, true, true, true, true, true, true]] call BIS_fnc_EGSpectator;
+	if (isClass(configFile >> "CfgPatches" >> "task_force_radio")) then {
+		[player, true] call TFAR_fnc_forceSpectator;
+		[call TFAR_fnc_activeSWRadio,false] call TFAR_fnc_radioOn;
+		[call TFAR_fnc_activeLRRadio,false] call TFAR_fnc_radioOn;
+	};
+	switch (playerSide) do {
+		case east: {
+			[player] joinSilent createGroup CIVILIAN;
+			[] spawn {
+				while {(zsn_wce ^ 2) >= 1 && side player == CIVILIAN} do {
+					hintSilent format ["Wave Respawn is in effect, wave size is %1. You will respawn when %2 more players die.", zsn_wse, zsn_wse - (count list zsn_eplayer_trg)];
+					sleep 1;
+				};
+			};
 		};
-		switch (playerSide) do {
-			case east: {
-				[[player], createGroup CIVILIAN] remoteexec ["joinSilent"];
-				[] spawn {
-					while {(zsn_wce ^ 2) >= 1 && side player == CIVILIAN} do {
-						hintSilent format ["Wave Respawn is in effect, wave size is %1. You will respawn when %2 more players die.", zsn_wse, zsn_wse - (count list zsn_eplayer_trg)];
-						sleep 1;
-					};
+		case west: {
+			[player] joinSilent createGroup CIVILIAN;
+			[] spawn {
+				while {(zsn_wcw ^ 2) >= 1 && side player == CIVILIAN} do {
+					hintSilent format ["Wave Respawn is in effect, wave size is %1. You will respawn when %2 more players die.", zsn_wsw, zsn_wsw - (count list zsn_wplayer_trg)];
+					sleep 1;
 				};
 			};
-			case west: {
-				[[player], createGroup CIVILIAN] remoteexec ["joinSilent"];
-				[] spawn {
-					while {(zsn_wcw ^ 2) >= 1 && side player == CIVILIAN} do {
-						hintSilent format ["Wave Respawn is in effect, wave size is %1. You will respawn when %2 more players die.", zsn_wsw, zsn_wsw - (count list zsn_wplayer_trg)];
-						sleep 1;
-					};
-				};
-			};
-			case resistance: {
-				[[player], createGroup CIVILIAN] remoteexec ["joinSilent"];
-				[] spawn {
-					while {(zsn_wcg ^ 2) >= 1 && side player == CIVILIAN} do {
-						hintSilent format ["Wave Respawn is in effect, wave size is %1. You will respawn when %2 more players die.", zsn_wsg, zsn_wsg - (count list zsn_gplayer_trg)];
-						sleep 1;
-					};
+		};
+		case resistance: {
+			[player] joinSilent createGroup CIVILIAN;
+			[] spawn {
+				while {(zsn_wcg ^ 2) >= 1 && side player == CIVILIAN} do {
+					hintSilent format ["Wave Respawn is in effect, wave size is %1. You will respawn when %2 more players die.", zsn_wsg, zsn_wsg - (count list zsn_gplayer_trg)];
+					sleep 1;
 				};
 			};
 		};
