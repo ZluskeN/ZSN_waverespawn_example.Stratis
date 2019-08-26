@@ -7,16 +7,16 @@ call zsn_fnc_clearweapon;
 
 // Create trigger on respawn markers, which will be consulted when displaying explanatory hints on player death
 zsn_eplayer_trg = createTrigger ["EmptyDetector", getmarkerPos "respawn_east"];
-zsn_eplayer_trg setTriggerActivation ["civ", "PRESENT", true];			
+zsn_eplayer_trg setTriggerActivation ["ANYPLAYER", "PRESENT", true];			
 zsn_wplayer_trg = createTrigger ["EmptyDetector", getmarkerPos "respawn_west"];
-zsn_wplayer_trg setTriggerActivation ["civ", "PRESENT", true];
+zsn_wplayer_trg setTriggerActivation ["ANYPLAYER", "PRESENT", true];
 zsn_gplayer_trg = createTrigger ["EmptyDetector", getmarkerPos "respawn_guerrila"];
-zsn_gplayer_trg setTriggerActivation ["civ", "PRESENT", true];
+zsn_gplayer_trg setTriggerActivation ["ANYPLAYER", "PRESENT", true];
 
 // Add script to respawn event, which will initialize spectating and handle counters
 player addEventHandler ["Respawn", {
-	[player] join grpNull;
 	titleText ["", "BLACK OUT"];
+	[player] join grpNull;
 	[player, [missionNamespace, "inventory_var"]] call BIS_fnc_loadInventory;
 	sleep 1;
 	zsn_playerlist = (list zsn_eplayer_trg) + (list zsn_wplayer_trg) + (list zsn_gplayer_trg);
