@@ -33,7 +33,7 @@ switch (_zsn_side) do {
 		zsn_rse = _zsn_rs; publicVariable "zsn_rse";
 		if (!isNil ("zsn_est")) then {deleteVehicle zsn_est;};
 		zsn_est = createTrigger ["EmptyDetector", getmarkerPos "respawn_east"];
-		zsn_est setTriggerActivation ["civ", "PRESENT", true];
+		zsn_est setTriggerActivation ["ANYPLAYER", "PRESENT", true];
 		if (zsn_rse == east) then {zsn_est setTriggerStatements ["isServer && (zsn_wce ^ 2) >= 1 && {Side _x == civilian} count thislist >= zsn_wse", "
 			_zsn_units = [];
 			{if (_foreachindex < zsn_wse) then {_zsn_units pushback _x};} foreach thislist; 
@@ -88,7 +88,7 @@ switch (_zsn_side) do {
 		zsn_rsw = _zsn_rs; publicVariable "zsn_rsw";
 		if (!isNil ("zsn_wst")) then {deleteVehicle zsn_wst;};
 		zsn_wst = createTrigger ["EmptyDetector", getmarkerPos "respawn_west"];
-		zsn_wst setTriggerActivation ["civ", "PRESENT", true];
+		zsn_wst setTriggerActivation ["ANYPLAYER", "PRESENT", true];
 		if (zsn_rsw == east) then {zsn_wst setTriggerStatements ["isServer && (zsn_wcw ^ 2) >= 1 && {Side _x == civilian} count thislist >= zsn_wsw", "
 			_zsn_units = [];
 			{if (_foreachindex < zsn_wsw) then {_zsn_units pushback _x};} foreach thislist; 
@@ -143,7 +143,7 @@ switch (_zsn_side) do {
 		zsn_rsg = _zsn_rs; publicVariable "zsn_rsg";
 		if (!isNil ("zsn_gst")) then {deleteVehicle zsn_gst;};
 		zsn_gst = createTrigger ["EmptyDetector", getmarkerPos "respawn_guerrila"];
-		zsn_gst setTriggerActivation ["civ", "PRESENT", true];
+		zsn_gst setTriggerActivation ["ANYPLAYER", "PRESENT", true];
 		if (zsn_rsg == east) then {zsn_gst setTriggerStatements ["isServer && (zsn_wcg ^ 2) >= 1 && {Side _x == civilian} count thislist >= zsn_wsg", "
 			_zsn_units = [];
 			{if (_foreachindex < zsn_wsg) then {_zsn_units pushback _x};} foreach thislist; 
