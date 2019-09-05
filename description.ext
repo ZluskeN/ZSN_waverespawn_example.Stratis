@@ -82,6 +82,15 @@ class CfgFunctions
 		};
 	};
 };
+class CfgRemoteExec
+{
+	class Functions
+	{
+		class zsn_fnc_localplayerinit {};
+		class zsn_fnc_waverespawn {};
+		class zsn_fnc_newwave {};
+	};
+};
 class CfgRespawnInventory
 {
 	class ZSN_O_SquadLeader
