@@ -24,9 +24,9 @@ if (getPlayerUID player == 76561198130090580) then {
 // Remove magazine from gun and add it to inventory
 if (currentWeapon player isKindOf ["Rifle_Base_F", configFile >> "CfgWeapons"]) then {
 	_magtype = currentmagazine player;  
-		if (_unit canAdd _magtype) then {
-			_unit addmagazine _magtype;
-			_unit removePrimaryWeaponItem _magtype;
+		if (player canAdd _magtype) then {
+			player addmagazine _magtype;
+			player removePrimaryWeaponItem _magtype;
 		};
 	};
 };
